@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" th:href="@{/css/newlogin.css}" >
+</head>
+<body>
+    <div class="adminlogin" th:style="'background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url('+ @{/images/bg.png} + ');'">
+        <div class="form-container">
+            <form action="" method="POST" id="update-form">
+
+                <div class="title">
+                    <h2>Login to Your Account</h2>
+                    <p>Enter your username & password to login</p>
+                </div>
+                <div class="input-field">
+                    <label>Email</label>
+                    <input name="email" type="text" id="myemail" />
+                </div>
+                <div class="input-field">
+                    <label>Password</label>
+                    <input name="password" type="password" />
+                </div>
+                <div class="check-box">
+                    <input type="checkbox" id='check' />
+                    <label for='check'>Remember me</label>
+                </div>
+                <button>Login</button>
+
+                    <!-- <p style="color:red; margin-top:20px; margin-left: 5px">{{ Session::get('message') }}</p> -->
+
+
+                    <!-- <p style="color:red; margin-top:20px; margin-left: 5px">Email or password incorrect!</p> -->
+
+            </form>
+        </div>
+        <p>Power by springboot with advanced encryption standard</p>
+    </div>
+    <script>
+        const set_email = document.getElementById('myemail')
+        const token = JSON.parse(localStorage.getItem("remember_token"))
+        set_email.value = token
+    </script>
+    <script>
+        document.querySelector('#update-form').addEventListener('submit', (e) => {
+            const check = document.getElementById('check')
+            if (check.checked){
+                const item_data = document.getElementById('myemail').value
+                localStorage.setItem("remember_token", JSON.stringify(item_data))
+            }else{
+                localStorage.removeItem("remember_token")
+            }
+        });
+    </script>
+    <script type="text/javascript">
+        window.onpageshow = function(event) {
+            if (event.persisted) {
+                window.location.reload() ;
+            }
+        };
+    </script>
+</body>
+</html>

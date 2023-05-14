@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&family=Poor+Story&display=swap" rel="stylesheet">
+    <style>
+        :root{
+    --font-header: 36px;
+    --font-regular: 16px;
+    --font-semi-regular: 20px;
+    --font-semi-header: 26px;
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Poor Story', cursive;
+}
+
+img{
+    width: 100%;
+    
+}
+
+header{
+    height: 80px;
+    width: 100%;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid silver;
+}
+
+header .header-arrange{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+header .header-arrange p{
+    color: #fff;
+    font-size: var(--font-header);
+}
+
+header .header-arrange ul{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #fff;
+    padding: 0 40px 0 0;
+}
+
+header .header-arrange ul li{
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .header-arrange i{
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    display: none;
+}
+
+@media (max-width: 840px){
+    header .header-arrange i{
+        display: block;
+    }
+    header .header-arrange ul{
+        position: absolute;
+        top: 80px;
+        flex-direction: column;
+        width: 100%;
+        background: #000;
+        left: 0;
+        padding: 40px 20px;
+    }
+    header .header-arrange ul li{
+        padding: 10px 0;
+        border-radius: 10px;
+    }
+    header .header-arrange ul li:hover{
+        background: rgb(255, 255, 255);
+        color: #000;
+    }
+}
+.intro{
+    width: 100%;
+    min-height: 60vh;
+    
+    justify-content: center;
+    position: relative;
+    background-image: url('../static/pexels-david-mackey-1473714.jpg');
+    background-position: center;
+    background-size: cover;
+
+    text-align: center;
+    
+    
+
+}
+.text
+{
+    color: hsl(0, 0%, 5%);
+    text-align: center;
+
+    position: absolute;
+    top: 25%;
+    left: 5%;
+
+    
+}
+.button{
+    background-color: #000000;
+    border-radius: 10px;
+    color: white;
+    padding: 10px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 2px;
+    cursor: pointer;
+
+}
+button:hover{
+    background-color: gray;
+    
+}
+.feature{
+    text-align: center;
+    padding-top: 10px;
+    /* background-color: aqua; */
+    
+    
+}
+.Menu{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 5% 5%;
+    column-gap: 50px;
+    /* background: #c43232; */
+    
+}
+.Menu .img1{
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+}
+.Menu .img2{
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+}
+.Menu .img3{
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+}
+.drink{
+    background-color: #000000;
+    border-radius: 10px;
+    color: white;
+    padding: 10px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 2px;
+    cursor: pointer;
+    
+}
+
+
+
+
+</style>
+</head>
+
+<body>
+    <header>
+        <div class="header-arrange">
+            <p>GIC CAFE SHOP</p>
+            <ul>
+                <li>HOME</li>
+                <li>TABLE</li>
+                <li>LOGOUT</li>
+            </ul>
+            <i>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>                  
+            </i>
+        </div>
+    </header>
+    <div class="intro">
+       <div class="text">
+        <h1 style="font-size:70px">GIC CAFE</h1>
+        <button class="button">Order Now</button>
+       </div>
+    </div>
+    <div class="feature">
+        <h1 style="font-size: 50px;">Menu</h1>
+        <div class="Menu">
+            <div>
+                <img class="img1" src="../static/음료수.jpg" alt=" ">
+                <div>
+                    <button class="drink">Cool Drink</button>
+                </div>
+                <!-- <button class="drink">Ice Drink</button> -->
+            </div>
+            <div>
+                <img class="img2" src="../static/download (4).jpg" alt="">
+                <div>
+                    <button class="drink">Hot Drink</button>
+                </div>
+            </div>
+            <div>
+                <img class="img3" src="../static/strawberry milk.jpg" alt="">
+                <div>
+                    <button class="drink">Frappes</button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+   
+</body>
+</html>
