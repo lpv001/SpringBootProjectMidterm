@@ -14,23 +14,23 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
-import com.midterm.demo.service.BindingUserToDBService;
+// import com.midterm.demo.service.BindingUserToDBService;
 
 
 @Configuration
 @EnableWebSecurity
-@EnableMethodSecurity
+// @EnableMethodSecurity
 public class SecurityConfig {
     
     @Bean
     public UserDetailsService userDetailsService(PasswordEncoder encoder){
-        // UserDetails admin = User.withUsername("test")
-        //     .password(encoder.encode("1234"))
-        //     .roles("ADMIN")
-        //     .build();
+        UserDetails admin = User.withUsername("test")
+            .password(encoder.encode("1234"))
+            .roles("ADMIN")
+            .build();
         
-        //     return new InMemoryUserDetailsManager(admin);
-        return new BindingUserToDBService();
+            return new InMemoryUserDetailsManager(admin);
+        // return new BindingUserToDBService();
     }
     
     @Bean
