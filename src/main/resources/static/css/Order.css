@@ -1,0 +1,241 @@
+:root{
+    --font-header: 36px;
+    --font-regular: 16px;
+    --font-semi-regular: 20px;
+    --font-semi-header: 26px;
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Poor Story', cursive;
+}
+
+img{
+    width: 100%;
+}
+
+header{
+    height: 80px;
+    width: 100%;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid silver;
+}
+
+header .header-arrange{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+header .header-arrange p{
+    color: #fff;
+    font-size: var(--font-header);
+}
+
+header .header-arrange ul{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #fff;
+    padding: 0 40px 0 0;
+}
+
+header .header-arrange ul li{
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .header-arrange i{
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    display: none;
+}
+
+@media (max-width: 840px){
+    header .header-arrange i{
+        display: block;
+    }
+    header .header-arrange ul{
+        position: absolute;
+        top: 80px;
+        flex-direction: column;
+        width: 100%;
+        background: #000;
+        left: 0;
+        padding: 40px 20px;
+    }
+    header .header-arrange ul li{
+        padding: 10px 0;
+        border-radius: 10px;
+    }
+    header .header-arrange ul li:hover{
+        background: rgb(255, 255, 255);
+        color: #000;
+    }
+}
+.Title{
+    text-align: center;
+    /* margin: auto; */
+   
+    width: 100%;
+    height: 70px;
+    padding: 10px 10px;
+    
+   
+}
+.Menu{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    text-align: center;
+    padding: 5% 5%;
+    column-gap: 50px;
+   
+   
+    
+    
+}
+
+.Menu .img1{
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+}
+.Menu .img2{
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+}
+.Menu .img3{
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+}
+.order_drink{
+    background-color: #000000;
+    border-radius: 10px;
+    color: white;
+    padding: 10px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 2px;
+    cursor: pointer;
+  
+}
+button:hover{
+    background-color: gray;
+    
+}
+.Option_popup {
+    display: none;
+    
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 9;
+    transform:translate(-50%,-50%) ;
+  }
+  .Option_Container {
+    text-align: left;
+    width: 370px;
+    height: 325px;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: gray;
+   
+  }
+  .Option_Container input[type=text]:focus, 
+  .Option_Container input[type=checkbox] {
+    /* background-color: #4d1212; */
+    border-radius: 5px;
+    width: 25px;
+    height: 25px;
+    outline: none;
+    
+  }
+  
+  /* Set a style for the submit/login button */
+  .Option_Container .btn {
+    background-color: #000000;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 80px;
+    margin-bottom:10px;
+    opacity: 0.8;
+    border-radius: 10px;
+  }
+  .Option_Container .cancel {
+    background-color: rgb(0, 0, 0);
+    border-radius: 10px;
+  }
+  
+  /* Add some hover effects to buttons */
+  .Option_Container .btn:hover, .open-button:hover {
+    opacity: 1;
+  }
+  select {
+    width: 100px;
+    /* height: 20px; */
+    padding: 10px 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    font-size: 15px;
+  }
+  .radio{
+    display: none;
+  }
+  .label{
+    padding: 5px 10px;
+    background-color:  rgb(68, 60, 60);
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 15px;
+  }
+  #lang-1:checked ~ .label-1,
+  #lang-2:checked ~ .label-2,
+  #lang-3:checked ~ .label-3
+  {
+    background-color:rgb(0, 0, 0);
+  }
+  .flex-container {
+    display: flex;
+}
+
+.flex-child {
+    flex: 1;
+    border: 4px solid rgb(0, 0, 0);
+}  
+
+.flex-child:first-child {
+    margin-right: 20px;
+}
+.Container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 5px;
+}

@@ -105,7 +105,7 @@ header .header-arrange i{
     
     justify-content: center;
     position: relative;
-    background-image: url('../static/pexels-david-mackey-1473714.jpg');
+    background-image: url('../images/pexels-david-mackey-1473714.jpg');
     background-position: center;
     background-size: cover;
 
@@ -220,20 +220,20 @@ button:hover{
         <h1 style="font-size: 50px;">Menu</h1>
         <div class="Menu">
             <div>
-                <img class="img1" src="../static/음료수.jpg" alt=" ">
+                <img class="img1" src="../images/음료수.jpg" alt=" ">
                 <div>
-                    <button class="drink">Cool Drink</button>
+                    <button class="drink" onClick="mydrink()">Cool Drink</button>
                 </div>
                 <!-- <button class="drink">Ice Drink</button> -->
             </div>
             <div>
-                <img class="img2" src="../static/download (4).jpg" alt="">
+                <img class="img2" src="../images/download (4).jpg" alt="">
                 <div>
                     <button class="drink">Hot Drink</button>
                 </div>
             </div>
             <div>
-                <img class="img3" src="../static/strawberry milk.jpg" alt="">
+                <img class="img3" src="../images/strawberry milk.jpg" alt="">
                 <div>
                     <button class="drink">Frappes</button>
                 </div>
@@ -241,6 +241,10 @@ button:hover{
         </div>
         
     </div>
-   
+    <script>
+        function mydrink() {
+          window.location.href = "Order";
+        }
+      </script>
 </body>
 </html>

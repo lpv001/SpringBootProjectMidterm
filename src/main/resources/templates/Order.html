@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&family=Poor+Story&display=swap" rel="stylesheet">
+    <link href="../css/Order.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+</head>
+<body>
+    <header>
+        <div class="header-arrange">
+            <p>GIC CAFE SHOP</p>
+            <ul>
+                <li>HOME</li>
+                <li>TABLE</li>
+                <li>LOGOUT</li>
+            </ul>
+            <i>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>                  
+            </i>
+        </div>
+    </header>
+    <main>
+        <div>
+           
+        </div>
+        <div class="container">
+            <div class="flex-container">
+                <div class="flex-child ">
+                    <div class="Title">
+                        <h1 style="font-size: 50px;">Cool Drink</h1>
+                    </div>
+                    <div class="Menu">
+                        <div>
+                            <img class="img1" src="../images/음료수.jpg" alt=" ">
+                            <div>
+                                <button class="order_drink" onclick="SelectOption()">Ice Americano</button>
+                                <div class="Option_popup"id="myOption">
+                                    <form class="Option_Container">
+                                        <h1>Choose Your option</h1>
+                                        <div>
+                                          <Label for="Size"><b>Size</b></Label>
+                                          <input type="radio" id="lang-1" name="lang" value="HTML" class="radio" checked>
+                                          <label class="label label-1" for="lang-1">R</label>
+                                                
+                                          <input type="radio" id="lang-2" name="lang" value="CSS" class="radio">
+                                          <label class="label label-2" for="lang-2">L</label>
+                                                
+                                          <input type="radio" id="lang-3" name="lang" value="JavaScript" class="radio">
+                                          <label class="label label-3" for="lang-3">G</label>     
+                                        </div>
+                                        <div>
+                                            <div style="margin-top: 20px;">
+                                                <label for="Cream"><b>Cream</b></label>
+                                                <input type="checkbox" id="Cream " name="Cream" value="Cream">
+                            
+                                            </div>
+                                            <div style="margin-top: 20px;">
+                                                <label for="sugar"><b>Sugar</b></label>
+                                                <!-- <input type="text"  name="email" required> -->
+                                                <select id="Sugar" name="Sugar">
+                                                    <option value="10%">10%</option>
+                                                    <option value="20%">20%</option>
+                                                    <option value="50%">50%</option>
+                                                    <option value="75%">75%</option>
+                                                    <option value="100%">100%</option>
+            
+                                                    </select>
+                                            </div>
+                                            <div style="margin-top: 20px;">
+                                                <label for="Zone"><b>Zone</b></label>
+                                                <!-- <input type="text" name="psw" required> -->
+                                                <select id="Zone" name="Zone">
+                                                    <option value="a">A</option>
+                                                    <option value="b">B</option>
+                                                    <option value="c">C</option>
+                                                    </select>
+                                            </div>
+                                            
+                                        </div>
+                                        <div style="margin-top: 20px; float: right;">
+                                            <button type="submit" class="btn">OK</button>
+                                            <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+                                        </div>
+                        
+                                        
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- <button class="drink">Ice Drink</button> -->
+                        </div>
+                        <div>
+                            <img class="img2" src="../images/☻.jpg" alt="">
+                            <div>
+                                <button class="order_drink" onclick="SelectOption()">Ice Lemonade</button>
+                                <!-- <button class="order_drink" onclick="SelectOption()">Ice Americano</button> -->
+                                <div class="Option_popup"id="myOption">
+                                    <form class="Option_Container">
+                                        <h1>Choose Your option</h1>
+                                        <div>
+                                          <Label for="Size"><b>Size</b></Label>
+                                          <input type="radio" id="lang-1" name="lang" value="HTML" class="radio" checked>
+                                          <label class="label label-1" for="lang-1">R</label>
+                                                
+                                          <input type="radio" id="lang-2" name="lang" value="CSS" class="radio">
+                                          <label class="label label-2" for="lang-2">L</label>
+                                                
+                                          <input type="radio" id="lang-3" name="lang" value="JavaScript" class="radio">
+                                          <label class="label label-3" for="lang-3">G</label>  
+                                        </div>
+                                        <div>
+                                            <div style="margin-top: 20px;">
+                                                <label for="Cream"><b>Cream</b></label>
+                                                <input type="checkbox" id="Cream " name="Cream" value="Cream">
+                            
+                                            </div>
+                                            <div style="margin-top: 20px;">
+                                                <label for="sugar"><b>Sugar</b></label>
+                                                <!-- <input type="text"  name="email" required> -->
+                                                <select id="Sugar" name="Sugar">
+                                                    <option value="10%">10%</option>
+                                                    <option value="20%">20%</option>
+                                                    <option value="50%">50%</option>
+                                                    <option value="75%">75%</option>
+                                                    <option value="100%">100%</option>
+            
+                                                    </select>
+                                            </div>
+                                            <div style="margin-top: 20px;">
+                                                <label for="Zone"><b>Zone</b></label>
+                                                <!-- <input type="text" name="psw" required> -->
+                                                <select id="Zone" name="Zone">
+                                                    <option value="a">A</option>
+                                                    <option value="b">B</option>
+                                                    <option value="c">C</option>
+                                                    </select>
+                                            </div>
+                                            
+                                        </div>
+                                        <div style="margin-top: 20px; float: right;">
+                                            <button type="submit" class="btn">OK</button>
+                                            <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+                                        </div>
+                        
+                                        
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <img class="img3" src="../images/Pretty Drink Inspo.jfif" alt="">
+                            <div>
+                                <button class="order_drink"onclick="SelectOption()">Passion Soda</button>
+                                <div class="Option_popup"id="myOption">
+                                    <form class="Option_Container">
+                                        <h1>Choose Your option</h1>
+                                        <div>
+                                          <Label for="Size"><b>Size</b></Label>
+                                          <input type="radio" id="lang-1" name="lang" value="HTML" class="radio" checked>
+                                          <label class="label label-1" for="lang-1">R</label>
+                                                
+                                          <input type="radio" id="lang-2" name="lang" value="CSS" class="radio">
+                                          <label class="label label-2" for="lang-2">L</label>
+                                                
+                                          <input type="radio" id="lang-3" name="lang" value="JavaScript" class="radio">
+                                          <label class="label label-3" for="lang-3">G</label>  
+                                        </div>
+                                        <div>
+                                            <div style="margin-top: 20px;">
+                                                <label for="Cream"><b>Cream</b></label>
+                                                <input type="checkbox" id="Cream " name="Cream" value="Cream">
+                            
+                                            </div>
+                                            <div style="margin-top: 20px;">
+                                                <label for="sugar"><b>Sugar</b></label>
+                                                <!-- <input type="text"  name="email" required> -->
+                                                <select id="Sugar" name="Sugar">
+                                                    <option value="10%">10%</option>
+                                                    <option value="20%">20%</option>
+                                                    <option value="50%">50%</option>
+                                                    <option value="75%">75%</option>
+                                                    <option value="100%">100%</option>
+            
+                                                    </select>
+                                            </div>
+                                            <div style="margin-top: 20px;">
+                                                <label for="Zone"><b>Zone</b></label>
+                                                <!-- <input type="text" name="psw" required> -->
+                                                <select id="Zone" name="Zone">
+                                                    <option value="a">A</option>
+                                                    <option value="b">B</option>
+                                                    <option value="c">C</option>
+                                                    </select>
+                                            </div>
+                                            
+                                        </div>
+                                        <div style="margin-top: 20px; float: right;">
+                                            <button type="submit" class="btn">OK</button>
+                                            <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+                                        </div>
+                        
+                                        
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <img class="img3" src="../images/d o n y.jpg" alt="">
+                            <div>
+                                <button class="order_drink"onclick="SelectOption()">Blue Lemonade</button>
+                                <div class="Option_popup"id="myOption">
+                                    <form class="Option_Container">
+                                        <h1>Choose Your option</h1>
+                                        <div>
+                                          <Label for="Size"><b>Size</b></Label>
+                                          <input type="radio" id="lang-1" name="lang" value="HTML" class="radio" checked>
+                                          <label class="label label-1" for="lang-1">R</label>
+                                                
+                                          <input type="radio" id="lang-2" name="lang" value="CSS" class="radio">
+                                          <label class="label label-2" for="lang-2">L</label>
+                                                
+                                          <input type="radio" id="lang-3" name="lang" value="JavaScript" class="radio">
+                                          <label class="label label-3" for="lang-3">G</label>  
+                                        </div>
+                                        <div>
+                                            <div style="margin-top: 20px;">
+                                                <label for="Cream"><b>Cream</b></label>
+                                                <input type="checkbox" id="Cream " name="Cream" value="Cream">
+                            
+                                            </div>
+                                            <div style="margin-top: 20px;">
+                                                <label for="sugar"><b>Sugar</b></label>
+                                                <!-- <input type="text"  name="email" required> -->
+                                                <select id="Sugar" name="Sugar">
+                                                    <option value="10%">10%</option>
+                                                    <option value="20%">20%</option>
+                                                    <option value="50%">50%</option>
+                                                    <option value="75%">75%</option>
+                                                    <option value="100%">100%</option>
+            
+                                                    </select>
+                                            </div>
+                                            <div style="margin-top: 20px;">
+                                                <label for="Zone"><b>Zone</b></label>
+                                                <!-- <input type="text" name="psw" required> -->
+                                                <select id="Zone" name="Zone">
+                                                    <option value="a">A</option>
+                                                    <option value="b">B</option>
+                                                    <option value="c">C</option>
+                                                    </select>
+                                            </div>
+                                            
+                                        </div>
+                                        <div style="margin-top: 20px; float: right;">
+                                            <button type="submit" class="btn">OK</button>
+                                            <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+                                        </div>
+                        
+                                        
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <img class="img3" src="../images/Your coffee influence (Levi Ackerman x Reader).jfif" alt="">
+                            <div>
+                                <button class="order_drink" onclick="SelectOption()">Ice Latte</button>
+                                <div class="Option_popup"id="myOption">
+                                    <form class="Option_Container">
+                                        <h1>Choose Your option</h1>
+                                        <div>
+                                          <Label for="Size"><b>Size</b></Label>
+                                          <input type="radio" id="lang-1" name="lang" value="HTML" class="radio" checked>
+                                          <label class="label label-1" for="lang-1">R</label>
+                                                
+                                          <input type="radio" id="lang-2" name="lang" value="CSS" class="radio">
+                                          <label class="label label-2" for="lang-2">L</label>
+                                                
+                                          <input type="radio" id="lang-3" name="lang" value="JavaScript" class="radio">
+                                          <label class="label label-3" for="lang-3">G</label>  
+                                        </div>
+                                        <div>
+                                            <div style="margin-top: 20px;">
+                                                <label for="Cream"><b>Cream</b></label>
+                                                <input type="checkbox" id="Cream " name="Cream" value="Cream">
+                            
+                                            </div>
+                                            <div style="margin-top: 20px;">
+                                                <label for="sugar"><b>Sugar</b></label>
+                                                <!-- <input type="text"  name="email" required> -->
+                                                <select id="Sugar" name="Sugar">
+                                                    <option value="10%">10%</option>
+                                                    <option value="20%">20%</option>
+                                                    <option value="50%">50%</option>
+                                                    <option value="75%">75%</option>
+                                                    <option value="100%">100%</option>
+            
+                                                    </select>
+                                            </div>
+                                            <div style="margin-top: 20px;">
+                                                <label for="Zone"><b>Zone</b></label>
+                                                <!-- <input type="text" name="psw" required> -->
+                                                <select id="Zone" name="Zone">
+                                                    <option value="a">A</option>
+                                                    <option value="b">B</option>
+                                                    <option value="c">C</option>
+                                                    </select>
+                                            </div>
+                                            
+                                        </div>
+                                        <div style="margin-top: 20px; float: right;">
+                                            <button type="submit" class="btn">OK</button>
+                                            <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+                                        </div>
+                        
+                                        
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <img class="img3" src="../images/Iced Matcha Latte.jfif" alt="">
+                            <div>
+                                <button class="order_drink"onclick="SelectOption()">Matcha Latte</button>
+                                <div class="Option_popup"id="myOption">
+                                    <form class="Option_Container">
+                                        <h1>Choose Your option</h1>
+                                        <div>
+                                          <Label for="Size"><b>Size</b></Label>
+                                          <input type="radio" id="lang-1" name="lang" value="HTML" class="radio" checked>
+                                          <label class="label label-1" for="lang-1">R</label>
+                                                
+                                          <input type="radio" id="lang-2" name="lang" value="CSS" class="radio">
+                                          <label class="label label-2" for="lang-2">L</label>
+                                                
+                                          <input type="radio" id="lang-3" name="lang" value="JavaScript" class="radio">
+                                          <label class="label label-3" for="lang-3">G</label>  
+                                        </div>
+                                        <div>
+                                            <div style="margin-top: 20px;">
+                                                <label for="Cream"><b>Cream</b></label>
+                                                <input type="checkbox" id="Cream " name="Cream" value="Cream">
+                            
+                                            </div>
+                                            <div style="margin-top: 20px;">
+                                                <label for="sugar"><b>Sugar</b></label>
+                                                <!-- <input type="text"  name="email" required> -->
+                                                <select id="Sugar" name="Sugar">
+                                                    <option value="10%">10%</option>
+                                                    <option value="20%">20%</option>
+                                                    <option value="50%">50%</option>
+                                                    <option value="75%">75%</option>
+                                                    <option value="100%">100%</option>
+            
+                                                    </select>
+                                            </div>
+                                            <div style="margin-top: 20px;">
+                                                <label for="Zone"><b>Zone</b></label>
+                                                <!-- <input type="text" name="psw" required> -->
+                                                <select id="Zone" name="Zone">
+                                                    <option value="a">A</option>
+                                                    <option value="b">B</option>
+                                                    <option value="c">C</option>
+                                                    </select>
+                                            </div>
+                                            
+                                        </div>
+                                        <div style="margin-top: 20px; float: right;">
+                                            <button type="submit" id="add" class="btn">OK</button>
+                                            <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+                                        </div>
+                        
+                                        
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex-child ">
+                    <div class="Title">
+                        <h1 style="font-size: 50px;">Order Information</h1>
+                    </div>
+                    <div class="Container">
+                        
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        
+    </main>
+    <script>
+        function SelectOption() {
+           document.getElementById("myOption").style.display = "block";
+         }
+         
+         function closeForm() {
+           document.getElementById("myOption").style.display = "none";
+         }
+         
+    
+
+      </script>
+      
+    
+</body>
+</html>
