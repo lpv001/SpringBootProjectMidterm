@@ -1,13 +1,10 @@
 package com.midterm.demo.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-// import com.midterm.demo.models.Drink;
-// import org.springframework.data.jpa.repository.JpaRepository;
-// import org.springframework.data.jpa.repository.Query;
-// import java.util.List;
+import org.springframework.stereotype.Repository;
 
-import com.fasterxml.jackson.core.sym.Name;
 import com.midterm.demo.models.Drink;
+
 
 
 
@@ -17,7 +14,8 @@ import com.midterm.demo.models.Drink;
 //     List<Drink> getContainingDrinks(String word);
 // }
 
-public interface DrinkRepository extends JpaRepository<Name, Long>
+@Repository
+public interface DrinkRepository extends JpaRepository<Drink, Long>
 {
 
 }

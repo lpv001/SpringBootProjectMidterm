@@ -1,6 +1,8 @@
 package com.midterm.demo.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.midterm.demo.repositories.DrinkRepository;
+import com.midterm.demo.service.DrinkService;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -13,8 +15,10 @@ import java.util.Optional;
 
 @RestController
 public class DrinkControllers {
+
     @Autowired
-    private DrinkRepository drinkRepository;
+    private DrinkService service;
+
     // @GetMapping(path = "/")
 
     // @GetMapping("/Drink")

@@ -15,7 +15,7 @@ public class HomepageController {
     public Object table(){
         return new ModelAndView("table");
     }
-    @GetMapping(path = "/giccafe/Order")
+    @GetMapping(path = "/giccafe/order")
     public Object order(){
      return new ModelAndView("Order");
     }
