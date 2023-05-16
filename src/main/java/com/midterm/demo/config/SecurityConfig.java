@@ -51,22 +51,22 @@ public class SecurityConfig {
         // http.authorizeHttpRequests()
         //     .requestMatchers("/cashier/login").permitAll()
         //     .anyRequest().permitAll();
-        http.authorizeHttpRequests()
-            .requestMatchers(PathRequest.toStaticResources().atCommonLocations())
-            .permitAll();
-        http.authorizeHttpRequests()
-            .requestMatchers("/giccafe/**")
-            .authenticated();
-        http.formLogin()
-            .defaultSuccessUrl("/giccafe/homepage",true)
-            .permitAll();
-            // .loginPage("/cashier/login");
-        http.logout()
-            .logoutSuccessUrl("/")
-            .permitAll();
+        // http.authorizeHttpRequests()
+        //     .requestMatchers(PathRequest.toStaticResources().atCommonLocations())
+        //     .permitAll();
+        // http.authorizeHttpRequests()
+        //     .requestMatchers("/giccafe/**")
+        //     .authenticated();
+        // http.formLogin()
+        //     .defaultSuccessUrl("/giccafe/homepage",true)
+        //     .permitAll();
+        //     // .loginPage("/cashier/login");
+        // http.logout()
+        //     .logoutSuccessUrl("/")
+        //     .permitAll();
         // @formatter:on
         
-        return http.build();
+        return http.csrf().disable().build();
     }
 
     @Bean
