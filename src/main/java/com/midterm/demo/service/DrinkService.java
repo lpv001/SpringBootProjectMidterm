@@ -9,6 +9,14 @@ import com.midterm.demo.repositories.DrinkRepository;
 public class DrinkService {
     
     @Autowired
-    DrinkRepository repository;
+    private DrinkRepository repository;
+
+    public DrinkRepository getRepository() {
+        return repository;
+    }
+
+    public void setRepository(DrinkRepository repository) {
+        this.repository = repository;
+    }
 
 }
