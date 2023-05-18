@@ -1,0 +1,23 @@
+<html xmlns="http://www.thymleaf.org">
+    <head>
+        <title>List drink </title>
+    </head>
+    <body>
+        <h2>List drink </h2>
+        <hr/>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="drinks:${drinklists}">
+                    <td th:text="${drinks.id}"></td>
+                    <td th:text="${drinks.name}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
