@@ -13,12 +13,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.midterm.demo.models.Cashier;
 import com.midterm.demo.service.CashierService;
 
-import ch.qos.logback.core.model.Model;
+
 
 @RestController
 public class CashierController{
@@ -27,7 +26,7 @@ public class CashierController{
     private CashierService service;
 
     @PostMapping("/create_cashier")
-    public Cashier create_cashier(@RequestBody Cashier cashier){
+    public Cashier create_cashier(@RequestBody Cashier cashier) throws Exception{
         return service.saveCashier(cashier);
     }
 

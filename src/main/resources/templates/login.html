@@ -10,37 +10,37 @@
 <body>
     <div class="adminlogin" th:style="'background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url('+ @{/images/bg.png} + ');'">
         <div class="form-container">
-            <form action="" method="POST" id="update-form">
+            <form action="/cashier/login" method="post" id="update-form" >
 
                 <div class="title">
-                    <h2>Login to Your Account</h2>
+                    <h2>CASHIER</h2>
                     <p>Enter your username & password to login</p>
                 </div>
                 <div class="input-field">
                     <label>Email</label>
-                    <input name="email" type="text" id="myemail" />
+                    <input name="username" type="text" id="username" />
                 </div>
                 <div class="input-field">
                     <label>Password</label>
-                    <input name="password" type="password" />
+                    <input name="password" type="password" id="password" />
                 </div>
                 <div class="check-box">
                     <input type="checkbox" id='check' />
                     <label for='check'>Remember me</label>
                 </div>
-                <button>Login</button>
+                <button type="submit" style="margin-bottom: 10px">Login</button>
 
-                    <!-- <p style="color:red; margin-top:20px; margin-left: 5px">{{ Session::get('message') }}</p> -->
+                    <div style="height: 30px">
+                        <p style="color:red; margin-left: 5px" th:if="${param.error}">Invalid username or password.</p>
+                    </div>
 
-
-                    <!-- <p style="color:red; margin-top:20px; margin-left: 5px">Email or password incorrect!</p> -->
 
             </form>
         </div>
         <p>Power by springboot with advanced encryption standard</p>
     </div>
     <script>
-        const set_email = document.getElementById('myemail')
+        const set_email = document.getElementById('username')
         const token = JSON.parse(localStorage.getItem("remember_token"))
         set_email.value = token
     </script>
@@ -48,7 +48,7 @@
         document.querySelector('#update-form').addEventListener('submit', (e) => {
             const check = document.getElementById('check')
             if (check.checked){
-                const item_data = document.getElementById('myemail').value
+                const item_data = document.getElementById('username').value
                 localStorage.setItem("remember_token", JSON.stringify(item_data))
             }else{
                 localStorage.removeItem("remember_token")

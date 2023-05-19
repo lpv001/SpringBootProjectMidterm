@@ -1,4 +1,5 @@
 package com.midterm.demo.controllers;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -11,12 +12,15 @@ public class HomepageController {
         return new ModelAndView("homepage");
     }
 
-    @GetMapping(path = "/giccafe/table")
-    public Object table(){
-        return new ModelAndView("table");
-    }
     @GetMapping(path = "/giccafe/order")
     public Object order(){
      return new ModelAndView("Order");
     }
+
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @GetMapping(path = "/gicadmin/homepage")
+    public Object admin_home(){
+        return new ModelAndView("table");
+    }
+
 }

@@ -19,6 +19,10 @@ img{
     width: 100%;
 }
 
+body{
+    position: relative;
+}
+
 header{
     height: 80px;
     width: 100%;
@@ -93,6 +97,7 @@ main{
     width: min(1600px, 100%);
     height: calc(100vh - 80px - 80px);
     margin: auto;
+    position: relative;
 }
 
 main .path p{
@@ -131,6 +136,7 @@ main .main-detail .left-side .box{
     align-items: center;
     font-size: 42px;
     color: #fff;
+    cursor: pointer;
 }
 
 .active{
@@ -143,6 +149,37 @@ main .main-detail .left-side .box{
 
 .waiting{
     background-color: #959658;
+}
+
+main .select_type{
+    display: none;
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+main .select_type p{
+    background: lightblue;
+    padding: 10px 20px;
+    font-size: 28px;
+    color: #fff;
+}
+
+main .select_type .contain_type{
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    gap: 30px;
+}
+
+main .select_type .contain_type .type:hover{
+    color: #5a3ca0;
+    cursor: pointer;
 }
 
 main .main-detail .right-side{

@@ -5,7 +5,7 @@ import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import com.midterm.demo.Encrypt;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,12 +13,29 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
 @Entity(name = "Cashier")
 @Table(
-    name = "cashier_table"
+    name = "cashier_table",
+    uniqueConstraints = {@UniqueConstraint( name = "username",  columnNames = "username")}
 )
 public class Cashier {
+
+    public Cashier(String firstname, String lastname, String type, String sex, Date dob, String username, String password, String image_path){
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.type = type;
+        this.dob = dob;
+        this.sex = sex;
+        this.username = username;
+        this.password = password;
+        this.image_path = image_path;
+    }
+
+    public Cashier(){
+        
+    }
 
     @Id
     @SequenceGenerator(
@@ -52,6 +69,13 @@ public class Cashier {
     private String lastname;
 
     @Column(
+        name = "type",
+        nullable = false,
+        columnDefinition = "TEXT"
+    )
+    private String type;
+
+    @Column(
         name = "sex",
         nullable = false,
         columnDefinition = "TEXT"
@@ -82,7 +106,7 @@ public class Cashier {
 
     @Column(
         name = "image_path",
-        nullable = false,
+        nullable = true,
         columnDefinition = "TEXT"
     )
     private String image_path;
@@ -139,11 +163,15 @@ public class Cashier {
         return password;
     }
 
-    public void setPassword(String password) throws Exception {
-        Encrypt encrypt = new Encrypt();
-        encrypt.initFromStrings("XB7Pcvfdpa3YRVcILaVgiA==", "00d2U2RXvp589tur");
-        String encryptedPassword = encrypt.encrypt(password);
-        this.password = encryptedPassword;
+    // public void setPassword(String password) throws Exception {
+    //     Encrypt encrypt = new Encrypt();
+    //     encrypt.initFromStrings("XB7Pcvfdpa3YRVcILaVgiA==", "00d2U2RXvp589tur");
+    //     String encryptedPassword = encrypt.encrypt(password);
+    //     this.password = encryptedPassword;
+    // }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getImage_path() {
@@ -152,6 +180,14 @@ public class Cashier {
 
     public void setImage_path(String image_path) {
         this.image_path = image_path;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     
