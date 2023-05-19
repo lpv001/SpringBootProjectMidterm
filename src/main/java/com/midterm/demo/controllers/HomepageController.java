@@ -16,6 +16,10 @@ public class HomepageController {
     public Object order(){
      return new ModelAndView("Order");
     }
+    @GetMapping(path = "/giccafe/calculator")
+    public Object calculator(){
+     return new ModelAndView("calculator");
+    }
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping(path = "/gicadmin/homepage")

@@ -89,14 +89,41 @@ header .header-arrange i{
 }
 .Title{
     text-align: center;
-    /* margin: auto; */
+    margin: auto;
    
     width: 100%;
     height: 70px;
-    padding: 10px 10px;
+    padding: 10px 10px; 
     
-   
 }
+.wrapper{
+    height: 120px;
+    width: 400px;
+    /* border: 1px solid black; */
+    display: flex;
+     
+    overflow-x: auto;
+    margin: auto;
+    align-items: center;
+    
+    
+    
+ } 
+ .wrapper::-webkit-scrollbar{
+    display: none;
+ }
+ .wrapper .item{
+    width: 90px;
+    height: 50px;
+    background-color: rgb(25, 27, 27);
+    line-height: 50px;
+    text-align: center;
+    margin-right:5px ;
+    color: #fff;
+ 
+    
+     
+ }
 .Menu{
     display: flex;
     flex-wrap: wrap;
@@ -109,7 +136,7 @@ header .header-arrange i{
    
     
     
-}
+} 
 
 .Menu .img1{
     width: 200px;
