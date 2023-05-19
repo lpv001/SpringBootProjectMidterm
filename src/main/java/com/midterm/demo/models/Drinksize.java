@@ -12,11 +12,7 @@ import jakarta.persistence.Column;
 public class Drinksize {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(
-        name = "price",
-        updatable = false
-    )
-    private Float price;
+  
 
     @Column(
         name = "size",
@@ -24,6 +20,11 @@ public class Drinksize {
         columnDefinition = "TEXT"
     )
     private String size;
+    @Column(
+        name = "price",
+        updatable = false
+    )
+    private Float price;
     public String getSize() {
         return size;
     }
