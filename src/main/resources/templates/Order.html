@@ -53,6 +53,64 @@
                             <div>
                                 <button class="order_drink" onclick="SelectOption()">Ice Americano</button>
                                 <div class="Option_popup"id="myOption">
+                                    <div class="Option_Container">
+                                        <h1>Choose Your option</h1>
+                                        <div>
+                                          <Label for="Size"><b>Size</b></Label>
+                                          <input type="radio" id="lang-1" name="lang" value="HTML" class="radio" checked>
+                                          <label class="label label-1" for="lang-1">R</label>
+                                                
+                                          <input type="radio" id="lang-2" name="lang" value="CSS" class="radio">
+                                          <label class="label label-2" for="lang-2">L</label>
+                                                
+                                          <input type="radio" id="lang-3" name="lang" value="JavaScript" class="radio">
+                                          <label class="label label-3" for="lang-3">G</label>     
+                                        </div>
+                                        <div>
+                                            <div style="margin-top: 20px;">
+                                                <label for="Cream"><b>Cream</b></label>
+                                                <input type="checkbox" id="Cream " name="Cream" value="Cream">
+                            
+                                            </div>
+                                            <div style="margin-top: 20px;">
+                                                <label for="sugar"><b>Sugar</b></label>
+                                                <!-- <input type="text"  name="email" required> -->
+                                                <select id="Sugar" name="Sugar">
+                                                    <option value="10%">10%</option>
+                                                    <option value="20%">20%</option>
+                                                    <option value="50%">50%</option>
+                                                    <option value="75%">75%</option>
+                                                    <option value="100%">100%</option>
+            
+                                                    </select>
+                                            </div>
+                                            <div style="margin-top: 20px;">
+                                                <label for="Zone"><b>Zone</b></label>
+                                                <!-- <input type="text" name="psw" required> -->
+                                                <select id="Zone" name="Zone">
+                                                    <option value="a">A</option>
+                                                    <option value="b">B</option>
+                                                    <option value="c">C</option>
+                                                    </select>
+                                            </div>
+                                            
+                                        </div>
+                                        <div style="margin-top: 20px; float: right;">
+                                            <button type="submit" class="btn" onclick=setDetail()>OK</button>
+                                            <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+                                        </div>
+                        
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <button class="drink">Ice Drink</button> -->
+                        </div>
+                        <div>
+                            <img class="img1" src="../images/음료수.jpg" alt=" ">
+                            <div>
+                                <button class="order_drink" onclick="SelectOption()">Ice Americano</button>
+                                <div class="Option_popup"id="myOption">
                                     <form class="Option_Container">
                                         <h1>Choose Your option</h1>
                                         <div>
@@ -106,292 +164,6 @@
                             </div>
                             <!-- <button class="drink">Ice Drink</button> -->
                         </div>
-                        <div>
-                            <img class="img2" src="../images/☻.jpg" alt="">
-                            <div>
-                                <button class="order_drink" onclick="SelectOption()">Ice Lemonade</button>
-                                <!-- <button class="order_drink" onclick="SelectOption()">Ice Americano</button> -->
-                                <div class="Option_popup"id="myOption">
-                                    <form class="Option_Container">
-                                        <h1>Choose Your option</h1>
-                                        <div>
-                                          <Label for="Size"><b>Size</b></Label>
-                                          <input type="radio" id="lang-1" name="lang" value="HTML" class="radio" checked>
-                                          <label class="label label-1" for="lang-1">R</label>
-                                                
-                                          <input type="radio" id="lang-2" name="lang" value="CSS" class="radio">
-                                          <label class="label label-2" for="lang-2">L</label>
-                                                
-                                          <input type="radio" id="lang-3" name="lang" value="JavaScript" class="radio">
-                                          <label class="label label-3" for="lang-3">G</label>  
-                                        </div>
-                                        <div>
-                                            <div style="margin-top: 20px;">
-                                                <label for="Cream"><b>Cream</b></label>
-                                                <input type="checkbox" id="Cream " name="Cream" value="Cream">
-                            
-                                            </div>
-                                            <div style="margin-top: 20px;">
-                                                <label for="sugar"><b>Sugar</b></label>
-                                                <!-- <input type="text"  name="email" required> -->
-                                                <select id="Sugar" name="Sugar">
-                                                    <option value="10%">10%</option>
-                                                    <option value="20%">20%</option>
-                                                    <option value="50%">50%</option>
-                                                    <option value="75%">75%</option>
-                                                    <option value="100%">100%</option>
-            
-                                                    </select>
-                                            </div>
-                                            <div style="margin-top: 20px;">
-                                                <label for="Zone"><b>Zone</b></label>
-                                                <!-- <input type="text" name="psw" required> -->
-                                                <select id="Zone" name="Zone">
-                                                    <option value="a">A</option>
-                                                    <option value="b">B</option>
-                                                    <option value="c">C</option>
-                                                    </select>
-                                            </div>
-                                            
-                                        </div>
-                                        <div style="margin-top: 20px; float: right;">
-                                            <button type="submit" class="btn">OK</button>
-                                            <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
-                                        </div>
-                        
-                                        
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <img class="img3" src="../images/Pretty Drink Inspo.jfif" alt="">
-                            <div>
-                                <button class="order_drink"onclick="SelectOption()">Passion Soda</button>
-                                <div class="Option_popup"id="myOption">
-                                    <form class="Option_Container">
-                                        <h1>Choose Your option</h1>
-                                        <div>
-                                          <Label for="Size"><b>Size</b></Label>
-                                          <input type="radio" id="lang-1" name="lang" value="HTML" class="radio" checked>
-                                          <label class="label label-1" for="lang-1">R</label>
-                                                
-                                          <input type="radio" id="lang-2" name="lang" value="CSS" class="radio">
-                                          <label class="label label-2" for="lang-2">L</label>
-                                                
-                                          <input type="radio" id="lang-3" name="lang" value="JavaScript" class="radio">
-                                          <label class="label label-3" for="lang-3">G</label>  
-                                        </div>
-                                        <div>
-                                            <div style="margin-top: 20px;">
-                                                <label for="Cream"><b>Cream</b></label>
-                                                <input type="checkbox" id="Cream " name="Cream" value="Cream">
-                            
-                                            </div>
-                                            <div style="margin-top: 20px;">
-                                                <label for="sugar"><b>Sugar</b></label>
-                                                <!-- <input type="text"  name="email" required> -->
-                                                <select id="Sugar" name="Sugar">
-                                                    <option value="10%">10%</option>
-                                                    <option value="20%">20%</option>
-                                                    <option value="50%">50%</option>
-                                                    <option value="75%">75%</option>
-                                                    <option value="100%">100%</option>
-            
-                                                    </select>
-                                            </div>
-                                            <div style="margin-top: 20px;">
-                                                <label for="Zone"><b>Zone</b></label>
-                                                <!-- <input type="text" name="psw" required> -->
-                                                <select id="Zone" name="Zone">
-                                                    <option value="a">A</option>
-                                                    <option value="b">B</option>
-                                                    <option value="c">C</option>
-                                                    </select>
-                                            </div>
-                                            
-                                        </div>
-                                        <div style="margin-top: 20px; float: right;">
-                                            <button type="submit" class="btn">OK</button>
-                                            <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
-                                        </div>
-                        
-                                        
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <img class="img3" src="../images/d o n y.jpg" alt="">
-                            <div>
-                                <button class="order_drink"onclick="SelectOption()">Blue Lemonade</button>
-                                <div class="Option_popup"id="myOption">
-                                    <form class="Option_Container">
-                                        <h1>Choose Your option</h1>
-                                        <div>
-                                          <Label for="Size"><b>Size</b></Label>
-                                          <input type="radio" id="lang-1" name="lang" value="HTML" class="radio" checked>
-                                          <label class="label label-1" for="lang-1">R</label>
-                                                
-                                          <input type="radio" id="lang-2" name="lang" value="CSS" class="radio">
-                                          <label class="label label-2" for="lang-2">L</label>
-                                                
-                                          <input type="radio" id="lang-3" name="lang" value="JavaScript" class="radio">
-                                          <label class="label label-3" for="lang-3">G</label>  
-                                        </div>
-                                        <div>
-                                            <div style="margin-top: 20px;">
-                                                <label for="Cream"><b>Cream</b></label>
-                                                <input type="checkbox" id="Cream " name="Cream" value="Cream">
-                            
-                                            </div>
-                                            <div style="margin-top: 20px;">
-                                                <label for="sugar"><b>Sugar</b></label>
-                                                <!-- <input type="text"  name="email" required> -->
-                                                <select id="Sugar" name="Sugar">
-                                                    <option value="10%">10%</option>
-                                                    <option value="20%">20%</option>
-                                                    <option value="50%">50%</option>
-                                                    <option value="75%">75%</option>
-                                                    <option value="100%">100%</option>
-            
-                                                    </select>
-                                            </div>
-                                            <div style="margin-top: 20px;">
-                                                <label for="Zone"><b>Zone</b></label>
-                                                <!-- <input type="text" name="psw" required> -->
-                                                <select id="Zone" name="Zone">
-                                                    <option value="a">A</option>
-                                                    <option value="b">B</option>
-                                                    <option value="c">C</option>
-                                                    </select>
-                                            </div>
-                                            
-                                        </div>
-                                        <div style="margin-top: 20px; float: right;">
-                                            <button type="submit" class="btn">OK</button>
-                                            <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
-                                        </div>
-                        
-                                        
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <img class="img3" src="../images/Your coffee influence (Levi Ackerman x Reader).jfif" alt="">
-                            <div>
-                                <button class="order_drink" onclick="SelectOption()">Ice Latte</button>
-                                <div class="Option_popup"id="myOption">
-                                    <form class="Option_Container">
-                                        <h1>Choose Your option</h1>
-                                        <div>
-                                          <Label for="Size"><b>Size</b></Label>
-                                          <input type="radio" id="lang-1" name="lang" value="HTML" class="radio" checked>
-                                          <label class="label label-1" for="lang-1">R</label>
-                                                
-                                          <input type="radio" id="lang-2" name="lang" value="CSS" class="radio">
-                                          <label class="label label-2" for="lang-2">L</label>
-                                                
-                                          <input type="radio" id="lang-3" name="lang" value="JavaScript" class="radio">
-                                          <label class="label label-3" for="lang-3">G</label>  
-                                        </div>
-                                        <div>
-                                            <div style="margin-top: 20px;">
-                                                <label for="Cream"><b>Cream</b></label>
-                                                <input type="checkbox" id="Cream " name="Cream" value="Cream">
-                            
-                                            </div>
-                                            <div style="margin-top: 20px;">
-                                                <label for="sugar"><b>Sugar</b></label>
-                                                <!-- <input type="text"  name="email" required> -->
-                                                <select id="Sugar" name="Sugar">
-                                                    <option value="10%">10%</option>
-                                                    <option value="20%">20%</option>
-                                                    <option value="50%">50%</option>
-                                                    <option value="75%">75%</option>
-                                                    <option value="100%">100%</option>
-            
-                                                    </select>
-                                            </div>
-                                            <div style="margin-top: 20px;">
-                                                <label for="Zone"><b>Zone</b></label>
-                                                <!-- <input type="text" name="psw" required> -->
-                                                <select id="Zone" name="Zone">
-                                                    <option value="a">A</option>
-                                                    <option value="b">B</option>
-                                                    <option value="c">C</option>
-                                                    </select>
-                                            </div>
-                                            
-                                        </div>
-                                        <div style="margin-top: 20px; float: right;">
-                                            <button type="submit" class="btn">OK</button>
-                                            <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
-                                        </div>
-                        
-                                        
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <img class="img3" src="../images/Iced Matcha Latte.jfif" alt="">
-                            <div>
-                                <button class="order_drink"onclick="SelectOption()">Matcha Latte</button>
-                                <div class="Option_popup"id="myOption">
-                                    <form class="Option_Container">
-                                        <h1>Choose Your option</h1>
-                                        <div>
-                                          <Label for="Size"><b>Size</b></Label>
-                                          <input type="radio" id="lang-1" name="lang" value="HTML" class="radio" checked>
-                                          <label class="label label-1" for="lang-1">R</label>
-                                                
-                                          <input type="radio" id="lang-2" name="lang" value="CSS" class="radio">
-                                          <label class="label label-2" for="lang-2">L</label>
-                                                
-                                          <input type="radio" id="lang-3" name="lang" value="JavaScript" class="radio">
-                                          <label class="label label-3" for="lang-3">G</label>  
-                                        </div>
-                                        <div>
-                                            <div style="margin-top: 20px;">
-                                                <label for="Cream"><b>Cream</b></label>
-                                                <input type="checkbox" id="Cream " name="Cream" value="Cream">
-                            
-                                            </div>
-                                            <div style="margin-top: 20px;">
-                                                <label for="sugar"><b>Sugar</b></label>
-                                                <!-- <input type="text"  name="email" required> -->
-                                                <select id="Sugar" name="Sugar">
-                                                    <option value="10%">10%</option>
-                                                    <option value="20%">20%</option>
-                                                    <option value="50%">50%</option>
-                                                    <option value="75%">75%</option>
-                                                    <option value="100%">100%</option>
-            
-                                                    </select>
-                                            </div>
-                                            <div style="margin-top: 20px;">
-                                                <label for="Zone"><b>Zone</b></label>
-                                                <!-- <input type="text" name="psw" required> -->
-                                                <select id="Zone" name="Zone">
-                                                    <option value="a">A</option>
-                                                    <option value="b">B</option>
-                                                    <option value="c">C</option>
-                                                    </select>
-                                            </div>
-                                            
-                                        </div>
-                                        <div style="margin-top: 20px; float: right;">
-                                            <button type="submit" id="add" class="btn">OK</button>
-                                            <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
-                                        </div>
-                        
-                                        
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -399,9 +171,46 @@
                     <div class="Title">
                         <h1 style="font-size: 50px;">Order Information</h1>
                     </div>
-                    <!-- <div class="Container">
-                        <a href="calculator">Next</a>
-                    </div> -->
+                    <div class="listing">
+                        <div class="list">
+                            <p>1</p>
+                            <p>Iced Americano</p>
+                            <p>R</p>
+                            <p>2</p>
+                            <p>2.3</p>
+                            <p>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
+                                      </svg>                                      
+                                </span>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                                      </svg>                                      
+                                </span>
+                            </p>
+                        </div>
+                        <div class="list">
+                            <p>1</p>
+                            <p>Iced Americano</p>
+                            <p>R</p>
+                            <p>2</p>
+                            <p>2.3</p>
+                            <p>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
+                                      </svg>                                      
+                                </span>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                                      </svg>                                      
+                                </span>
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -418,6 +227,11 @@
            document.getElementById("myOption").style.display = "none";
          }
          
+
+         function setDetail(){
+             console.log("hi")
+             document.getElementById("myOption").style.display = "none";
+         }
     
 
       </script>

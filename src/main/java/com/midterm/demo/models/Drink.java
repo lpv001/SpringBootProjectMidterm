@@ -8,33 +8,125 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Table(name="drinks")
 
 public class Drink {
-    private Long id;
-    private String name;
+
+    // public Drink(String code, String drinkname, String category, String price, String note){
+    //     this.code = code;
+    //     this.drinkname = drinkname;
+    //     this.category = category;
+    //     this.price = price;
+    //     this.note = note;
+    // }
     
-    public Drink(String name){
-        this.name = name;
-    }
-    public Drink(){
+    // public Drink(){
         
-    }
+    // }
 
     @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long getId() {
+    @SequenceGenerator(
+        name = "cashier_sequence",
+        sequenceName = "cashier_sequence",
+        allocationSize = 1
+    )
+    @GeneratedValue(
+        strategy = GenerationType.SEQUENCE,
+        generator = "cashier_sequence"
+    )
+
+    @Column(
+        name = "id",
+        updatable = false
+    )
+    private Integer id;
+
+    @Column(
+        name = "code",
+        nullable = false,
+        columnDefinition = "TEXT"
+    )
+    private String code;
+
+    @Column(
+        name = "drinkname",
+        nullable = false,
+        columnDefinition = "TEXT"
+    )
+    private String drinkname;
+
+    @Column(
+        name = "category",
+        nullable = false,
+        columnDefinition = "TEXT"
+    )
+    private String category;
+
+    @Column(
+        name = "price",
+        nullable = false,
+        columnDefinition = "TEXT"
+    )
+    private String price;
+
+    @Column(
+        name = "note",
+        nullable = false,
+        columnDefinition = "TEXT"
+    )
+    private String note;
+
+    @Column(
+        name = "image_path",
+        nullable = false
+    )
+    private String image_path;
+
+    public Integer getId() {
         return id;
     }
-    public void setId(Long id) {
+
+    public void setId(Integer id) {
         this.id = id;
     }
-    public String getName() {
-        return name;
+
+    public String getCode() {
+        return code;
     }
-    public void setName(String name) {
-        this.name = name;
+
+    public void setCode(String code) {
+        this.code = code;
     }
-    @Override
-    public String toString() {
-        return "Drink [id=" + id + ", name=" + name + "]";
-    }    
+
+    public String getDrinkname() {
+        return drinkname;
+    }
+
+    public void setDrinkname(String drinkname) {
+        this.drinkname = drinkname;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+
 }
 

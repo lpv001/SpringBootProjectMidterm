@@ -2,6 +2,7 @@ package com.midterm.demo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.midterm.demo.models.Drink;
 import java.util.List;
@@ -17,7 +18,9 @@ public class DrinkService {
     {
         return repository.save(drink);
     }
-    public List<Drink> getDrink(){
-        return repository.findAll();
-    }
+    // public List<Drink> getDrink(){
+    //     return repository.findAll();
+    // }
+
+
 }
