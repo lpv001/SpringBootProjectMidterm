@@ -300,7 +300,7 @@ button:hover {
     <main>
         <div class="container">
             <header>NewDrink</header>
-            <form action="/create_new_drink" method="post">
+            <form action="/create_new_drink" method="post" enctype="multipart/form-data">
                 <div class="information">
                     <div class="input-field">
                         <label for="Drinkcode">Drink code:</label>
@@ -329,7 +329,7 @@ button:hover {
                 <div class="photo">
                     <div class="image"><img src="" alt=""></div>
                     <div class="upload-box">
-                        <input name="image_path" type="file" accept="image/*" hidden>
+                        <input name="image" type="file" accept="image/*" hidden>
                         <img src="https://www.codingnepalweb.com/demos/resize-and-compress-image-javascript/upload-icon.svg"
                             alt="">
                         <p>Browse File to Upload</p>
@@ -362,6 +362,12 @@ button:hover {
             uploadBox.addEventListener("click", () => fileInput.click());
     
         </script>
+        <th:block th:if="${errorMessage}">
+            <script>alert("Create new drink failed!")</script>
+        </th:block>
+        <th:block th:if="${successMessage}">
+            <script>alert("Create new drink successfully!")</script>
+        </th:block>
     </main>
 </body>
 </html>
