@@ -33,10 +33,4 @@ public class HomepageController {
         return new ModelAndView("create_drink");
     }
 
-    @PreAuthorize("hasAuthority('ADMIN')")
-    @GetMapping(path = "/gicadmin/drink")
-    public Object admin_drink(){
-        return new ModelAndView("admindrink");
-    }
-
 }

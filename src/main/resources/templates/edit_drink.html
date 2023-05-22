@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -300,29 +300,29 @@ button:hover {
     <main>
         <div class="container">
             <header>NewDrink</header>
-            <form action="/create_new_drink" method="post" enctype="multipart/form-data">
+            <form th:action="@{'/edit_drink_by_id/' + ${drink.id}}" method="post" enctype="multipart/form-data">
                 <div class="information">
                     <div class="input-field">
                         <label for="Drinkcode">Drink code:</label>
-                        <input name="code" type="text" placeholder="code">
+                        <input name="code" type="text" placeholder="code" th:value="${drink.code}">
                     </div>
                     <div class="input-field">
                         <label for="Drinkname">Drink name:</label>
-                        <input name="drinkname" type="text" placeholder="name">
+                        <input name="drinkname" type="text" placeholder="name" th:value="${drink.drinkname}">
                     </div>
                     <div class="input-field">
                         <label for="firstname">Category:</label>
                         <div class="c_input">
-                            <input name="category" type="text" placeholder="category">
+                            <input name="category" type="text" placeholder="category"  th:value="${drink.category}">
                             <i class="uil uil-plus"></i></div>
                         </div>
                     <div class="input-field">
                         <label for="firstname">Price:</label>
-                        <input name="price" type="text" placeholder="$$">
+                        <input name="price" type="text" placeholder="$$"  th:value="${drink.price}">
                     </div>
                     <div class="input-note">
                         <label for="firstname">Note:</label>
-                        <input name="note" type="text" placeholder="some">
+                        <input name="note" type="text" placeholder="some"  th:value="${drink.note}">
                     </div>
     
                 </div>
@@ -330,14 +330,13 @@ button:hover {
                     <div class="image"><img src="" alt=""></div>
                     <div class="upload-box">
                         <input name="image" type="file" accept="image/*" hidden>
-                        <img src="https://www.codingnepalweb.com/demos/resize-and-compress-image-javascript/upload-icon.svg"
-                            alt="">
+                        <img th:src="@{'http://localhost:8080/drinkimage/' + ${drink.image_path}}">
                         <p>Browse File to Upload</p>
                     </div>
     
                 </div>
                 <div class="btn">
-                    <a th:href="@{'/gicadmin/homepage'}"><button type="button">Cencel</button></a>
+                    <a th:href="@{'/gicadmin/drink'}"><button type="button">Cencel</button></a>
                     <button type="submit">OK</button>
                 </div>
             </form>

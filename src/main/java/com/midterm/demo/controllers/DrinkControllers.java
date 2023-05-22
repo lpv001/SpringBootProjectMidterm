@@ -9,6 +9,7 @@ import com.midterm.demo.service.DrinkService;
 import jakarta.servlet.http.HttpSession;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -77,7 +78,47 @@ public class DrinkControllers {
         return "redirect:/gicadmin/create_drink";
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @GetMapping(path = "/gicadmin/drink")
+    public Object admin_drink(){
+        ModelAndView modelAndView = new ModelAndView("admindrink");
+        modelAndView.addObject("drinks", service.getDrink());
+        return modelAndView;
+    }
+
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @GetMapping(path = "/gicadmin/edit_drink/{id}")
+    public Object edit_drink(@PathVariable Long id){
+        ModelAndView modelAndView = new ModelAndView("edit_drink");
+        modelAndView.addObject("drink", service.findDrinkById(id).get());
+        return modelAndView;
+    }
      
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @GetMapping(path = "/gicadmin/delete_drink/{id}")
+    public String delete_drink(@PathVariable Long id){
+        service.deleteDrinkById(id);
+        return "redirect:/gicadmin/drink";
+    }
+
+    @PostMapping("/edit_drink_by_id/{id}")
+    public String edit_drink_by_id(@ModelAttribute Drink form, @RequestParam(value = "image") MultipartFile image, RedirectAttributes redirectAttributes){
+        
+        System.out.println();
+
+        // service.setUpdateTableById(form.getCategory(), form.getCode(), form.getDrinkname(), image.getOriginalFilename(), form.getNote(), form.getId());
+
+        // try {
+        //     File saveFile = new ClassPathResource("static/drinkimage").getFile();
+        //     Path path = Paths.get(saveFile.getAbsolutePath() + File.separator + image.getOriginalFilename());
+        //     Files.write(path, image.getBytes());
+        // } catch (Exception e) {
+        //     // TODO: handle exception
+        // }
+
+        return "redirect:/gicadmin/drink";
+    }
+
 }
 
 

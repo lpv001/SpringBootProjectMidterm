@@ -320,61 +320,32 @@ h2{
         </div>
     </header>
     <main>
-        <div class="box">
+        <div class="box" th:each="drink: ${drinks}">
             <div class="image-container">
-                <img  />
+                <img th:src="@{'http://localhost:8080/drinkimage/' + ${drink.image_path}}" />
             </div>
             <div class="description">
                 <div class="ds">
                     <div class="flex-box">
                         <h2>TITLE</h2>
-                        <h4>: Gunfire in Sudanes LIVEExplosions and gunfire in Sudan's capital as fighting rages</h4>
+                        <h4>: [[${drink.drinkname}]]</h4>
                     </div>
                     <div class="flex-box">
-                        <h2>VIEWER</h2>
-                        <h4>: 1000</h4>
+                        <h2>CATEGORY</h2>
+                        <h4>: [[${drink.category}]]</h4>
                     </div>
                     <div class="flex-box">
-                        <h2>HANDLER</h2>
-                        <h4>: Pink Panther</h4>
+                        <h2>PRICE</h2>
+                        <h4>: [[${drink.price}]]</h4>
                     </div>
                     <div class="flex-box">
-                        <h2>CREATED AT</h2>
-                        <h4>: 2019 - Jan - Monday</h4>
+                        <h2>CODE</h2>
+                        <h4>: [[${drink.code}]]</h4>
                     </div>
                 </div>
                 <div class="bt">
-                    <button>EDIT</button>
-                    <button>DELETE</button>
-                </div>
-            </div>
-        </div>
-        <div class="box">
-            <div class="image-container">
-                <img  />
-            </div>
-            <div class="description">
-                <div class="ds">
-                    <div class="flex-box">
-                        <h2>TITLE</h2>
-                        <h4>: Gunfire in Sudanes LIVEExplosions and gunfire in Sudan's capital as fighting rages</h4>
-                    </div>
-                    <div class="flex-box">
-                        <h2>VIEWER</h2>
-                        <h4>: 1000</h4>
-                    </div>
-                    <div class="flex-box">
-                        <h2>HANDLER</h2>
-                        <h4>: Pink Panther</h4>
-                    </div>
-                    <div class="flex-box">
-                        <h2>CREATED AT</h2>
-                        <h4>: 2019 - Jan - Monday</h4>
-                    </div>
-                </div>
-                <div class="bt">
-                    <button>EDIT</button>
-                    <button>DELETE</button>
+                    <a th:href="@{'/gicadmin/edit_drink/' + ${drink.id}}"><button>EDIT</button></a>
+                    <a th:href="@{'/gicadmin/delete_drink/' + ${drink.id}}"><button>DELETE</button></a>
                 </div>
             </div>
         </div>
