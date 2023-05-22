@@ -104,17 +104,24 @@ public class DrinkControllers {
     @PostMapping("/edit_drink_by_id/{id}")
     public String edit_drink_by_id(@ModelAttribute Drink form, @RequestParam(value = "image") MultipartFile image, RedirectAttributes redirectAttributes){
         
-        System.out.println();
 
-        // service.setUpdateTableById(form.getCategory(), form.getCode(), form.getDrinkname(), image.getOriginalFilename(), form.getNote(), form.getId());
+        
+        
+        
+        if ( image.getOriginalFilename().equals("") ){
+            service.setUpdateTableById(form.getCategory(), form.getCode(), form.getDrinkname(), form.getImage_path(), form.getNote(), form.getId());
+        }else{
+            service.setUpdateTableById(form.getCategory(), form.getCode(), form.getDrinkname(), image.getOriginalFilename(), form.getNote(), form.getId());
+            try {
+                File saveFile = new ClassPathResource("static/drinkimage").getFile();
+                Path path = Paths.get(saveFile.getAbsolutePath() + File.separator + image.getOriginalFilename());
+                Files.write(path, image.getBytes());
+            } catch (Exception e) {
+                // TODO: handle exception
+            }
+        }
 
-        // try {
-        //     File saveFile = new ClassPathResource("static/drinkimage").getFile();
-        //     Path path = Paths.get(saveFile.getAbsolutePath() + File.separator + image.getOriginalFilename());
-        //     Files.write(path, image.getBytes());
-        // } catch (Exception e) {
-        //     // TODO: handle exception
-        // }
+        redirectAttributes.addFlashAttribute("successMessage", "Edit drink successfully!");
 
         return "redirect:/gicadmin/drink";
     }

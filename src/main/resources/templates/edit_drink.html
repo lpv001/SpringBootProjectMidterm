@@ -329,16 +329,16 @@ button:hover {
                 <div class="photo">
                     <div class="image"><img src="" alt=""></div>
                     <div class="upload-box">
-                        <input name="image" type="file" accept="image/*" hidden>
+                        <input name="image" type="file" th:value="${drink.image_path}" hidden>
                         <img th:src="@{'http://localhost:8080/drinkimage/' + ${drink.image_path}}">
                         <p>Browse File to Upload</p>
                     </div>
-    
                 </div>
                 <div class="btn">
                     <a th:href="@{'/gicadmin/drink'}"><button type="button">Cencel</button></a>
                     <button type="submit">OK</button>
                 </div>
+                <input name="image_path" type="text" th:value="${drink.image_path}" hidden>
             </form>
         </div>
         <script>

@@ -350,5 +350,8 @@ h2{
             </div>
         </div>
     </main>
+    <th:block th:if="${successMessage}">
+        <script>alert("Edit drink successfully!")</script>
+    </th:block>
 </body>
 </html>
