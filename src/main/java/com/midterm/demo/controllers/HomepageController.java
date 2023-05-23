@@ -12,10 +12,6 @@ public class HomepageController {
         return new ModelAndView("homepage");
     }
 
-    @GetMapping(path = "/giccafe/order")
-    public Object order(){
-     return new ModelAndView("Order");
-    }
     @GetMapping(path = "/giccafe/calculator")
     public Object calculator(){
      return new ModelAndView("calculator");

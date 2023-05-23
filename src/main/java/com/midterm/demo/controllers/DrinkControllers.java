@@ -101,11 +101,9 @@ public class DrinkControllers {
         return "redirect:/gicadmin/drink";
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @PostMapping("/edit_drink_by_id/{id}")
     public String edit_drink_by_id(@ModelAttribute Drink form, @RequestParam(value = "image") MultipartFile image, RedirectAttributes redirectAttributes){
-        
-
-        
         
         
         if ( image.getOriginalFilename().equals("") ){
@@ -124,6 +122,15 @@ public class DrinkControllers {
         redirectAttributes.addFlashAttribute("successMessage", "Edit drink successfully!");
 
         return "redirect:/gicadmin/drink";
+    }
+
+    @GetMapping(path = "/giccafe/order")
+    public Object order(){
+        ModelAndView modelAndView = new ModelAndView("Order");
+        modelAndView.addObject("hotdrinks", service.getDrinkByCategory("hot"));
+        modelAndView.addObject("cooldrinks", service.getDrinkByCategory("cool"));
+        modelAndView.addObject("frappedrinks", service.getDrinkByCategory("frappe"));
+        return modelAndView;
     }
 
 }

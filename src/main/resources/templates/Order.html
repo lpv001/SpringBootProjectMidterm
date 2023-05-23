@@ -36,22 +36,18 @@
             <div class="flex-container">
                 <div class="flex-child ">
                      <div class="wrapper">
-                       <div class="item">Cool drink</div>
-                       <div class="item">Hot Coffee</div>
-                       <div class="item">Frappes</div>
-                       <div class="item">Food</div>
-                    
-                       
-                       
+                       <div class="item" style="cursor:pointer" id="cool" >Cool drink</div>
+                       <div class="item" style="cursor:pointer" id="hot" >Hot Coffee</div>
+                       <div class="item" style="cursor:pointer" id="frappe" >Frappes</div>
                     </div>
     
                         
                       
                     <div class="Menu">
-                        <div>
-                            <img class="img1" src="../images/음료수.jpg" alt=" ">
+                        <div th:each="hotdrink: ${hotdrinks}">
+                            <img class="img1" th:src="@{'http://localhost:8080/drinkimage/' + ${hotdrink.image_path}}">
                             <div>
-                                <button class="order_drink" onclick="SelectOption()">Ice Americano</button>
+                                <button class="order_drink" onclick="SelectOption()" th:text="${hotdrink.drinkname}"></button>
                                 <div class="Option_popup"id="myOption">
                                     <div class="Option_Container">
                                         <h1>Choose Your option</h1>
@@ -106,12 +102,15 @@
                             </div>
                             <!-- <button class="drink">Ice Drink</button> -->
                         </div>
-                        <div>
-                            <img class="img1" src="../images/음료수.jpg" alt=" ">
+                    </div>
+
+                    <div class="Menu">
+                        <div th:each="cooldrink: ${cooldrinks}">
+                            <img class="img1" th:src="@{'http://localhost:8080/drinkimage/' + ${cooldrink.image_path}}">
                             <div>
-                                <button class="order_drink" onclick="SelectOption()">Ice Americano</button>
+                                <button class="order_drink" onclick="SelectOption()" th:text="${cooldrink.drinkname}"></button>
                                 <div class="Option_popup"id="myOption">
-                                    <form class="Option_Container">
+                                    <div class="Option_Container">
                                         <h1>Choose Your option</h1>
                                         <div>
                                           <Label for="Size"><b>Size</b></Label>
@@ -154,17 +153,82 @@
                                             
                                         </div>
                                         <div style="margin-top: 20px; float: right;">
-                                            <button type="submit" class="btn">OK</button>
+                                            <button type="submit" class="btn" onclick=setDetail()>OK</button>
                                             <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
                                         </div>
                         
                                         
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                             <!-- <button class="drink">Ice Drink</button> -->
                         </div>
                     </div>
+
+                    <div class="Menu">
+                        <div th:each="frappedrink: ${frappedrinks}">
+                            <img class="img1" th:src="@{'http://localhost:8080/drinkimage/' + ${frappedrink.image_path}}">
+                            <div>
+                                <button class="order_drink" onclick="SelectOption()" th:text="${frappedrink.drinkname}"></button>
+                                <div class="Option_popup"id="myOption">
+                                    <div class="Option_Container">
+                                        <h1>Choose Your option</h1>
+                                        <div>
+                                          <Label for="Size"><b>Size</b></Label>
+                                          <input type="radio" id="lang-1" name="lang" value="HTML" class="radio" checked>
+                                          <label class="label label-1" for="lang-1">R</label>
+                                                
+                                          <input type="radio" id="lang-2" name="lang" value="CSS" class="radio">
+                                          <label class="label label-2" for="lang-2">L</label>
+                                                
+                                          <input type="radio" id="lang-3" name="lang" value="JavaScript" class="radio">
+                                          <label class="label label-3" for="lang-3">G</label>     
+                                        </div>
+                                        <div>
+                                            <div style="margin-top: 20px;">
+                                                <label for="Cream"><b>Cream</b></label>
+                                                <input type="checkbox" id="Cream " name="Cream" value="Cream">
+                            
+                                            </div>
+                                            <div style="margin-top: 20px;">
+                                                <label for="sugar"><b>Sugar</b></label>
+                                                <!-- <input type="text"  name="email" required> -->
+                                                <select id="Sugar" name="Sugar">
+                                                    <option value="10%">10%</option>
+                                                    <option value="20%">20%</option>
+                                                    <option value="50%">50%</option>
+                                                    <option value="75%">75%</option>
+                                                    <option value="100%">100%</option>
+            
+                                                    </select>
+                                            </div>
+                                            <div style="margin-top: 20px;">
+                                                <label for="Zone"><b>Zone</b></label>
+                                                <!-- <input type="text" name="psw" required> -->
+                                                <select id="Zone" name="Zone">
+                                                    <option value="a">A</option>
+                                                    <option value="b">B</option>
+                                                    <option value="c">C</option>
+                                                    </select>
+                                            </div>
+                                            
+                                        </div>
+                                        <div style="margin-top: 20px; float: right;">
+                                            <button type="submit" class="btn" onclick=setDetail()>OK</button>
+                                            <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+                                        </div>
+                        
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <button class="drink">Ice Drink</button> -->
+                        </div>
+                    </div>
+
+
+
+
                 </div>
 
                 <div class="flex-child ">
@@ -232,6 +296,33 @@
              console.log("hi")
              document.getElementById("myOption").style.display = "none";
          }
+
+         let category = document.querySelectorAll(".Menu")
+         let cool = document.getElementById('cool')
+         let hot = document.getElementById('hot')
+         let frappe = document.getElementById('frappe')
+
+         category[0].style.display = 'flex'
+         category[1].style.display = 'none'
+        category[2].style.display = 'none'
+         
+         cool.onclick = () => {
+             category[0].style.display = 'flex'
+             category[1].style.display = 'none'
+             category[2].style.display = 'none'
+         }
+
+         hot.onclick = () => {
+            category[0].style.display = 'none'
+            category[1].style.display = 'flex'
+            category[2].style.display = 'none'
+        }
+
+        frappe.onclick = () => {
+            category[0].style.display = 'none'
+            category[1].style.display = 'none'
+            category[2].style.display = 'flex'
+        }
     
 
       </script>

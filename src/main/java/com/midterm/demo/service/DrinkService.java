@@ -40,4 +40,8 @@ public class DrinkService {
         return repository.setUpdateTableById(category, code, drinkname, image_path, note, id);
     }
 
+    public List<Drink> getDrinkByCategory(String category){
+        return repository.getDrinkByCategory(category);
+    }
+
 }

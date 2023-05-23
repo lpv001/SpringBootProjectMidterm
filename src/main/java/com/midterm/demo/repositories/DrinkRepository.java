@@ -1,5 +1,7 @@
 package com.midterm.demo.repositories;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -25,4 +27,8 @@ public interface DrinkRepository extends JpaRepository<Drink, Long>
     // @Query(nativeQuery = true , value = "UPDATE drinks SET category = 'category', code = 'code', drinkname = 'drinkname', image_path = 'path', note = 'note' WHERE id = 102")
     @Query(nativeQuery = true , value = "UPDATE drinks SET category = (:category), code = (:code), drinkname = (:drinkname), image_path = (:image_path), note = (:note) WHERE id = (:id)")
     public int setUpdateTableById(@Param("category") String category, @Param("code") String code, @Param("drinkname") String drinkname, @Param("image_path") String image_path, @Param("note") String note, @Param("id") int id);
+
+    @Query(nativeQuery = true, value = "SELECT * FROM drinks WHERE category = (:category)")
+    public List<Drink> getDrinkByCategory(@Param("category") String category);
+
 }
