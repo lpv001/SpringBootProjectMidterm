@@ -43,6 +43,12 @@ public class DrinkControllers {
     //     return "listdrink";
     // }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @GetMapping(path = "/gicadmin/create_drink")
+    public Object create_drink(){
+        return new ModelAndView("create_drink");
+    }
+
     @PostMapping("/create_new_drink")
     public String create_new_drink(@ModelAttribute Drink form, @RequestParam(value = "image") MultipartFile image, RedirectAttributes redirectAttributes){
 
@@ -130,6 +136,7 @@ public class DrinkControllers {
         modelAndView.addObject("hotdrinks", service.getDrinkByCategory("hot"));
         modelAndView.addObject("cooldrinks", service.getDrinkByCategory("cool"));
         modelAndView.addObject("frappedrinks", service.getDrinkByCategory("frappe"));
+        modelAndView.addObject("foods", service.getDrinkByCategory("food"));
         return modelAndView;
     }
 

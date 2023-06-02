@@ -23,10 +23,8 @@ public class HomepageController {
         return new ModelAndView("adminhomepage");
     }
 
-    @PreAuthorize("hasAuthority('ADMIN')")
-    @GetMapping(path = "/gicadmin/create_drink")
-    public Object create_drink(){
-        return new ModelAndView("create_drink");
-    }
+    
+
+
 
 }

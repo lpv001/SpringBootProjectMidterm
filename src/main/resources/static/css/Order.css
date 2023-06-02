@@ -138,6 +138,10 @@ header .header-arrange i{
     
 } 
 
+.Menu img{
+    object-fit: cover;
+}
+
 .Menu .img1{
     width: 200px;
     height: 200px;
@@ -182,7 +186,7 @@ button:hover{
   .Option_Container {
     text-align: left;
     width: 370px;
-    height: 325px;
+    height: 375px;
     padding: 10px;
     font-size: 20px;
     border-radius: 10px;
@@ -324,5 +328,17 @@ button:hover{
 .listing .list p span{
     width: 20px;
     height: 20px;
+    cursor: pointer;
+}
+
+.flex-child .order:nth-child(2){
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.flex-child .order:nth-child(2) button{
+    border: 1px solid silver;
     cursor: pointer;
 }
