@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&family=Poor+Story&display=swap" rel="stylesheet">
     <link href="../css/Order.css" rel="stylesheet">
+    <link href="../css/recept.css" rel="stylesheet">
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
 </head>
@@ -28,7 +29,7 @@
             </i>
         </div>
     </header>
-    <main>
+    <main id = "ord">
         <div>
            
         </div>
@@ -48,7 +49,7 @@
                         <div th:each="hotdrink: ${hotdrinks}">
                             <img class="img1" th:src="@{'http://localhost:8080/drinkimage/' + ${hotdrink.image_path}}">
                             <div>
-                                <p id="price" th:text="${hotdrink.price} + '$'"></p>
+                                <p id="price" th:text="${hotdrink.price}"></p>
                                 <button class="order_drink" id="order_btn" th:onclick="|SelectOption('${hotdrink.id}',1)|" th:text="${hotdrink.drinkname}"></button>
                                 <div class="Option_popup" id="myOption1">
                                     <div class="Option_Container">
@@ -111,7 +112,7 @@
                         <div th:each="cooldrink: ${cooldrinks}">
                             <img class="img1" th:src="@{'http://localhost:8080/drinkimage/' + ${cooldrink.image_path}}">
                             <div>
-                                <p id="price" th:text="${frappedrink.price} + '$'"></p>
+                                <p id="price" th:text="${frappedrink.price}"></p>
                                 <button class="order_drink" id="order_btn" th:onclick="|SelectOption('${cooldrink.id}',2)|" th:text="${cooldrink.drinkname}"></button>
                                 <div class="Option_popup"id="myOption2">
                                     <div class="Option_Container">
@@ -177,7 +178,7 @@
                         <div th:each="frappedrink: ${frappedrinks}">
                             <img class="img1" th:src="@{'http://localhost:8080/drinkimage/' + ${frappedrink.image_path}}">
                             <div>
-                                <p id="price" th:text="${frappedrink.price} + '$'"></p>
+                                <p id="price" th:text="${frappedrink.price}"></p>
                                 <button class="order_drink" id="order_btn" th:onclick="|SelectOption('${frappedrink.id}',3)|" th:text="${frappedrink.drinkname}"></button>
                                 <div class="Option_popup" id="myOption3">
                                     <div class="Option_Container">
@@ -243,7 +244,7 @@
                         <div th:each="food: ${foods}">
                             <img class="img1" th:src="@{'http://localhost:8080/drinkimage/' + ${food.image_path}}">
                             <div>
-                                <p id="price" th:text="${food.price} + '$'"></p>
+                                <p id="price" th:text="${food.price}"></p>
                                 <button class="order_drink" id="order_btn" th:onclick="|SelectOption('${food.id}',4)|" th:text="${food.drinkname}"></button>
                                 <div class="Option_popup" id="myOption4">
                                     <div class="Option_Container">
@@ -309,7 +310,7 @@
                 </div>
 
                 <div class="flex-child ">
-                    <form id="ordering" method="post">
+                    
                         <div class="order">
                             <div class="Title">
                                 <h1 style="font-size: 50px;">Order Information</h1>
@@ -319,15 +320,72 @@
                             </div>
                         </div>
                         <div class="order">
-                            <button type="submit">Confirm Order</buttom>
+                            <button type="button" id = "confirm_button">Confirm Order</buttom>
                         </div>
-                    </form>
+                    
                 </div>
 
             </div>
 
         </div>
         
+    </main>
+    <main id = "rec">
+        <div class="path">
+            <p>COFFEE TABLE</p>
+        </div>
+        <div class="main-detail">
+            <div class="left-side">
+                <div class="brand-name">
+                    <h1>GIC CAFE SHOP</h1>
+                    <p>Coffee and bakery</p>
+                </div>
+                <div class="part">
+                    <p>Order Number: 168</p>
+                </div>
+                <div class="part">
+                    <p>Address: gic street 101, gic capital, gic town</p>
+                </div>
+                <div class="part">
+                    <p>Address: gic street 101, gic capital, gic town</p>
+                </div>
+                <div class="calculate-part">
+                    <div class="b-part" id="description">
+                        <h4>Description</h4>
+                        <p>Armericano Frapp</p>
+                        <p>Cappucino Frapp</p>
+                    </div>
+                    <div class="s-part" id="qt">
+                        <h4>Quantity</h4>
+                        <p>1</p>
+                        <p>2</p>
+                        <p>Sub Total</p>
+                        <p style="text-align: start; margin-top: 40px">Grand Total($)</p>
+                        <p style="text-align: start">Grand Total(R)</p>
+                        <hr>
+                    </div>
+                    <div class="s-part" id="un">
+                        <h4>Unit Price</h4>
+                        <p>3.15</p>
+                        <p>3.15</p>
+                    </div>
+                    <div class="s-part" id="am">
+                        <h4>Amount</h4>
+                        <p>3.15</p>
+                        <p>6.30</p>
+                        <p>9.45</p>
+                        <p style="text-align: start; margin-top: 40px">9.45</p>
+                        <p style="text-align: start">21,000</p>
+                    </div>
+                </div>
+            </div>
+            <div class="right-side">
+                <form id="ordering" method="post" style="width: 100%">
+                    <button style="width: 100%" type="submit">CONFIRM PRINT RECEPT</button>
+                </form>
+                <button id="cancel_order">CANCEL PRINT RECEPT</button>
+            </div>
+        </div>
     </main>
     <script src="../javascript/order.js"></script>
 </body>

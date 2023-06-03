@@ -2,16 +2,16 @@ package com.midterm.demo.utils;
 
 import java.util.List;
 
-import com.midterm.demo.models.Order;
+import com.midterm.demo.models.OrderInfo;
 
 public class OrderWrapper {
-    private List<Order> orders;
+    private List<OrderInfo> orders;
 
-    public List<Order> getOrders() {
+    public List<OrderInfo> getOrders() {
         return orders;
     }
 
-    public void setOrders(List<Order> orders) {
+    public void setOrders(List<OrderInfo> orders) {
         this.orders = orders;
     }
 

@@ -3,6 +3,8 @@ let cool = document.getElementById('cool')
 let hot = document.getElementById('hot')
 let frappe = document.getElementById('frappe')
 let food = document.getElementById('food')
+let order_page = document.getElementById('ord')
+let receipt_page = document.getElementById('rec')
 
 category[0].style.display = 'flex'
 category[1].style.display = 'none'
@@ -118,7 +120,7 @@ function processlist(array){
             <p>${data.name}</p>
             <p>${data.size}</p>
             <p>${data.quantity}</p>
-            <p>${data.price}</p>
+            <p>${data.price} $</p>
             <p>
                 <span>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -142,6 +144,88 @@ function erase_array(drink_id) {
     processlist(order_array)
 }
 
+let confirm_button = document.getElementById('confirm_button')
+var total_price = 0
+var order_arr = []
+var order_obj = {
+    total_price: ''
+}
+confirm_button.onclick = () => {
+    order_page.style.display = "none"
+    receipt_page.style.display = "block"
+
+    let id_holder = []
+    let name_holder = []
+    let quantity_holder = []
+    let unit_price_holder = []
+    let total_price_holder = []
+    
+
+    order_array.forEach(data => {
+        console.log(data)
+        id_holder.push(data.drink_id)
+        name_holder.push(data.name)
+        quantity_holder.push(data.quantity)
+        unit_price_holder.push(data.price)
+        total_price_holder.push(parseInt(data.quantity)*parseFloat(data.price).toFixed(2))
+    })
+    
+    total_price_holder.forEach((p) => total_price += p)
+
+    let dc = document.getElementById('description')
+    let str_dc = '<h4>Description</h4>'
+
+    name_holder.forEach((name) => {
+        str_dc += `<p>${name}</p>`
+    })
+
+    let qt = document.getElementById('qt')
+    let str_qt = '<h4>Quantity</h4>'
+
+    quantity_holder.forEach((qt) => {
+        str_qt += `<p>${qt}</p>`
+    })
+
+    str_qt += `
+        <p>Sub Total</p>
+        <p style="text-align: start; margin-top: 40px">Grand Total($)</p>
+        <p style="text-align: start">Grand Total(R)</p>
+        <hr>
+    `
+
+    let un = document.getElementById('un')
+    let str_un = '<h4>Unit Price</h4>'
+
+    unit_price_holder.forEach((un) => {
+        str_un += `<p>${un}</p>`
+    })
+
+    let am = document.getElementById('am')
+    let str_am = '<h4>Unit Price</h4>'
+
+    total_price_holder.forEach((am) => {
+        str_am += `<p>${am}</p>`
+    })
+
+    str_am += `<p>${total_price}</p>`
+    str_am += `<p style="text-align: start; margin-top: 40px">${total_price}</p>`
+    str_am += `<p style="text-align: start; margin-top: 40px">${total_price * 4100}</p>`
+
+    dc.innerHTML = str_dc
+    qt.innerHTML = str_qt
+    un.innerHTML = str_un
+    am.innerHTML = str_am
+
+    order_obj.total_price = `${total_price}`
+
+    order_arr.push(order_obj)
+
+}
+let cancel_order = document.getElementById('cancel_order')
+cancel_order.onclick = () => {
+    order_page.style.display = "block"
+    receipt_page.style.display = "none"
+}
 
 let form = document.getElementById('ordering')
 
@@ -149,26 +233,53 @@ form.addEventListener('submit', (e) => {
 
     e.preventDefault()
 
-    console.log(order_array)
-
     $.ajax({
-        url: "/giccafe/ordering",
+        url: "/giccafe/order_record",
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify({
-            orders: order_array
+            order: order_arr
         }),
         success: function (res) {
             console.log("post successfully")
         },
         error: function (jqXHR, textStatus, errorThrown){
             console.log(textStatus)
+            alert(textStatus)
         }
     })
 
-    html.innerHTML = ''
-    order_object = {}
-    order_array = []
+    window.setTimeout(() => {
+        $.ajax({
+            url: "/giccafe/ordering",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify({
+                orders: order_array
+            }),
+            success: function (res) {
+                console.log("post successfully")
+            },
+            error: function (jqXHR, textStatus, errorThrown){
+                console.log(textStatus)
+                alert(textStatus)
+            }
+        })
+
+        html.innerHTML = ''
+        order_object = {}
+        order_array = []
+
+        alert("Order successfuly!")
+        location.reload()
+
+    },2000)
+
+
+    // 
+    order_obj = {}
+    order_arr = []
 
 })
 
+receipt_page.style.display = "none"

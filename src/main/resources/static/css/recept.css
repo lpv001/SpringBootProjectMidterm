@@ -1,0 +1,227 @@
+/* :root{
+    --font-header: 36px;
+    --font-regular: 16px;
+    --font-semi-regular: 20px;
+    --font-semi-header: 26px;
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Poor Story', cursive;
+}
+
+img{
+    width: 100%;
+}
+
+header{
+    height: 80px;
+    width: 100%;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid silver;
+}
+
+header .header-arrange{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+header .header-arrange p{
+    color: #fff;
+    font-size: var(--font-header);
+}
+
+header .header-arrange ul{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #fff;
+    padding: 0 40px 0 0;
+}
+
+header .header-arrange ul li{
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .header-arrange i{
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    display: none;
+}
+
+@media (max-width: 840px){
+    header .header-arrange i{
+        display: block;
+    }
+    header .header-arrange ul{
+        position: absolute;
+        top: 80px;
+        flex-direction: column;
+        width: 100%;
+        background: #000;
+        left: 0;
+        padding: 40px 20px;
+    }
+    header .header-arrange ul li{
+        padding: 10px 0;
+        border-radius: 10px;
+    }
+    header .header-arrange ul li:hover{
+        background: rgb(255, 255, 255);
+        color: #000;
+    }
+} */
+
+main#rec{
+    padding: 40px 20px;
+    width: min(1600px, 100%);
+    height: calc(100vh - 80px - 80px);
+    margin: auto;
+}
+
+main#rec .path p{
+    font-size: var(--font-semi-header);
+}
+
+main#rec .path{
+    margin-bottom: 40px;
+}
+
+main#rec .main-detail{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    gap: 20px;
+}
+
+main#rec .main-detail > *{
+    height: 100%;
+    border: 1px solid black;
+}
+
+main#rec .main-detail .left-side{
+    flex: 3;
+    padding: 20px;
+}
+
+main#rec .main-detail .left-side .brand-name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+}
+
+main#rec .main-detail .left-side .brand-name h1{
+    font-size: 48px;
+    text-align: center;
+    font-weight: 200;
+}
+
+main#rec .main-detail .left-side .part{
+    padding: 5px 0;
+    border-bottom: 1px solid black;
+}
+
+main#rec .main-detail .left-side .part p{
+    font-size: 18px;
+}
+
+main#rec .main-detail .left-side .calculate-part{
+    display: flex;
+    padding: 5px 0;
+}
+
+main#rec .main-detail .left-side .calculate-part > *{
+    /* border: 1px solid black; */
+}
+
+main#rec .main-detail .left-side .calculate-part h4{
+    margin-bottom: 20px;
+}
+main#rec .main-detail .left-side .calculate-part p{
+    margin-top: 5px;
+    white-space:nowrap;
+}
+
+main#rec .main-detail .left-side .calculate-part .b-part{
+    flex:4
+}
+
+main#rec .main-detail .left-side .calculate-part .s-part{
+    flex: 1;
+    text-align: center;
+}
+
+main#rec .main-detail .left-side .calculate-part .s-part{
+    position: relative;
+}
+
+main#rec .main-detail .left-side .calculate-part .s-part hr{
+    border: 1px solid black;
+    width: 300%;
+    left: 0;
+    bottom: 60px;
+    position: absolute;
+    background: red;
+    color: red;
+}
+
+main#rec .main-detail .right-side{
+    flex: 1;
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+main#rec .main-detail .right-side button{
+    padding: 10px 0;
+    font-size: 18px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+main#rec .main-detail .right-side button:nth-child(1){
+    background: #1C1919;
+}
+
+main#rec .main-detail .right-side button:nth-child(2){
+    background: #C31414;
+}
+
+@media (max-width: 1024px){
+    main#rec .main-detail{
+        flex-direction: column;
+    }
+    main#rec .main-detail > *{
+        width: 100%;
+    }
+}
+
+@media (max-width: 763px){
+    main#rec .main-detail .left-side .calculate-part .s-part hr{
+        width: 200%;
+    }
+    main#rec .main-detail .left-side .calculate-part .b-part{
+        flex: 2;
+    }
+}
