@@ -167,7 +167,7 @@ confirm_button.onclick = () => {
         name_holder.push(data.name)
         quantity_holder.push(data.quantity)
         unit_price_holder.push(data.price)
-        total_price_holder.push(parseInt(data.quantity)*parseFloat(data.price).toFixed(2))
+        total_price_holder.push(parseFloat((parseInt(data.quantity)*parseFloat(data.price)).toFixed(2)))
     })
     
     total_price_holder.forEach((p) => total_price += p)
@@ -245,7 +245,7 @@ form.addEventListener('submit', (e) => {
         },
         error: function (jqXHR, textStatus, errorThrown){
             console.log(textStatus)
-            alert(textStatus)
+            alert("error")
         }
     })
 
@@ -262,7 +262,7 @@ form.addEventListener('submit', (e) => {
             },
             error: function (jqXHR, textStatus, errorThrown){
                 console.log(textStatus)
-                alert(textStatus)
+                alert("error")
             }
         })
 
