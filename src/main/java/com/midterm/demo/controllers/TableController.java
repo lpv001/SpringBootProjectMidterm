@@ -28,6 +28,14 @@ public class TableController {
     //     return service.getTables();
     // }
 
+    @PostMapping("/set_table_by_id_order/{id}/{status}")
+    public String set_status_table_by_id_order(@PathVariable int id, @PathVariable int status){
+        System.out.println(id);
+        System.out.println(status);
+        service.setStatusTableByIdOrder(id, status);
+        return "redirect:/giccafe/order";
+    }
+
     @PostMapping("/set_table_by_id/{id}/{status}")
     public String set_status_table_by_id(@PathVariable int id, @PathVariable int status){
         service.setStatusTableById(id, status);

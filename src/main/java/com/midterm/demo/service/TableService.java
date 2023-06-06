@@ -24,4 +24,9 @@ public class TableService {
         return repository.setStatusTableById(id, status);
     }
 
+    @Transactional
+    public int setStatusTableByIdOrder(int id, int status){
+        return repository.setStatusTableByIdOrder(id, status);
+    }
+
 }

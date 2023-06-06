@@ -86,15 +86,15 @@ function setName(){
     order_object.name = name
 }
 
-function SelectOption(id, type) {
-    ct = document.getElementById("myOption" + type)
+function SelectOption(id, type, element) {
+    ct = element.parentNode.querySelector("#myOption" + type)
     ct.style.display = "block"
     order_object.drink_id = id
 }
 
 function closeForm(type) {
     order_object = {}
-    document.getElementById("myOption" + type).style.display = "none";
+    ct.style.display = "none";
 }
 
 function setDetail(type) {
@@ -103,10 +103,12 @@ function setDetail(type) {
     setquantity()
     setPrice()
     setName()
+    if (!order_obj.cream) setcream()
+    console.log(order_obj.cream)
     order_array.push(order_object)
     order_object = {}
+    ct.style.display = "none"
     ct = null
-    document.getElementById("myOption" + type).style.display = "none"
     processlist(order_array)
 }
 
@@ -150,6 +152,7 @@ var order_arr = []
 var order_obj = {
     total_price: ''
 }
+
 confirm_button.onclick = () => {
     order_page.style.display = "none"
     receipt_page.style.display = "block"
@@ -227,11 +230,53 @@ cancel_order.onclick = () => {
     receipt_page.style.display = "none"
 }
 
+var table_control = {
+    table_no: '',
+    s_zone: ''
+}
+
+function settable(){
+    let e = document.querySelector("#s-table");
+    let table_no = e.options[e.selectedIndex].text;
+    table_control.table_no = table_no
+}
+function setz(){
+    let e = document.querySelector("#s-zone");
+    let s_zone = e.options[e.selectedIndex].text;
+    table_control.s_zone = s_zone
+}
+
 let form = document.getElementById('ordering')
 
 form.addEventListener('submit', (e) => {
 
     e.preventDefault()
+
+    settable()
+    setz()
+
+    let table_url = ""
+
+    if (table_control.s_zone === 'A')
+        table_url = "/set_table_by_id_order/" + table_control.table_no + "/" + 0
+    else if (table_control.s_zone === 'B')
+        table_url = "/set_table_by_id_order/" + table_control.table_no + "/" + 1
+    else
+        table_url = "/set_table_by_id_order/" + table_control.table_no + "/" + 2
+
+    console.log(table_control)
+
+    $.ajax({
+        url: table_url,
+        type: "POST",
+        success: function (res) {
+            console.log("post successfully")
+        },
+        error: function (jqXHR, textStatus, errorThrown){
+            console.log(textStatus)
+            alert("error")
+        }
+    })
 
     $.ajax({
         url: "/giccafe/order_record",
