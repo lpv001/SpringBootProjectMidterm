@@ -36,4 +36,9 @@ public class OrderInfoController {
         return "redirect:/giccafe/order";
     }
 
+    @GetMapping("/get_order_info_by_join_table")
+    public String orderInfos(){
+        return "";
+    }
+
 }

@@ -112,7 +112,7 @@
                         <div th:each="cooldrink: ${cooldrinks}">
                             <img class="img1" th:src="@{'http://localhost:8080/drinkimage/' + ${cooldrink.image_path}}">
                             <div>
-                                <p id="price" th:text="${frappedrink.price}"></p>
+                                <p id="price" th:text="${cooldrink.price}"></p>
                                 <button class="order_drink" id="order_btn" th:onclick="|SelectOption('${cooldrink.id}',2,this)|" th:text="${cooldrink.drinkname}"></button>
                                 <div class="Option_popup"id="myOption2">
                                     <div class="Option_Container">
@@ -297,7 +297,6 @@
                                             <button type="submit" class="btn" onclick=setDetail(4)>OK</button>
                                             <button type="button" class="btn cancel" onclick="closeForm(4)">Cancel</button>
                                         </div>
-                        
                                         
                                     </div>
                                 </div>
@@ -413,6 +412,7 @@
                             <option value="c">C</option>
                         </select>
                     </div>
+                    <p id="cashier_id" style="display:none">[[${user_id}]]</p>
                 </div>
             </div>
         </div>

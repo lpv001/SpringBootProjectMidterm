@@ -20,4 +20,7 @@ public interface CashierRepository extends JpaRepository<Cashier, Long>{
     @Query(nativeQuery = true , value = "UPDATE cashier_Table SET firstname = (:firstname), lastname = (:lastname), username= (:username), image_path = (:image_path), sex = (:sex), dob = (:dob), password = (:password), type = (:type) WHERE id = (:id)")
     public int setUpdateCashierById(@Param("firstname") String firstname, @Param("lastname") String lastname, @Param("username") String username, @Param("image_path") String image_path, @Param("sex") String sex, @Param("id") int id, @Param("dob") String dob, @Param("password") String password, @Param("type") String type);
 
+    @Query(nativeQuery = true, value= "SELECT id FROM cashier_table WHERE username = (:username)")
+    public Integer getLoginUserId(@Param("username") String username);
+
 }

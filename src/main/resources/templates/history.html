@@ -122,7 +122,6 @@ main{
     border: 1px solid black;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     min-height: 40vh;
-   
 }
 .history form{
     display: flex;
@@ -180,6 +179,14 @@ input {
     border: none;
 }
 
+.body_data:hover{
+    background: #FF99CC;
+    cursive: pointer;
+}
+
+.body_data td:hover{
+    cursive: pointer;
+}
 
 
 </style>
@@ -201,6 +208,9 @@ input {
           </i>
       </div>
   </header>
+
+  <div style="display:none" ></div>
+
   <main>
       <div class="history" >
         <div style="text-align: center;">
@@ -215,20 +225,137 @@ input {
                         <th style="width:33%;">order Number</th>
                         <th>Price</th>
                         <th>date</th>
-                        
-                        
                     </tr>
                 </thead>
                 <tbody style="text-align:center;font-size:20px;">
-                    <tr th:each="order:${orders}" >
-                        
-                        <td th:text="${order.id}" style="height:50px;"></td>
-                        <td th:text="${order.total_price}"></td>
-                        <td th:text="${order.date}"></td>
+                    <tr th:each="order:${orders}" class="body_data" th:onclick="'showMoreInfo(' + ${order.id} +')'"  >
+                        <td th:text="${order.id}" style="height:50px; cursor:pointer;"></td>
+                        <td style="cursor:pointer"><span style="max-width: 5ch; over-flow:hidden">[[${order.total_price}]]</span></td>
+                        <td style="cursor:pointer">[[${order.date}]]</td>
                     </tr>
                 </tbody>
             </table>
       </div>
+      <div class="history" style="position: relative" >
+            <div id="right-side">
+                <div style="display: flex; gap: 10px">
+                    <p>Cashier name:</p>
+                    <p id="reponse_cashier">Pink Panther</p>
+                </div>
+                <div style="display: flex; gap: 10px">
+                    <p>Order info</p>
+                    <p>:</p>
+                </div>
+                <div styly="display: flex; width:100%; flex-direction: column" id="order_listing">
+                    <div style="display: flex; margin-left: 20px; margin-top: 20px">
+                        <p style="flex: 1">Name</p>
+                        <p style="flex: 1">Quantity</p>
+                        <p style="flex: 1">Size</p>
+                        <p style="flex: 1">Category</p>
+                        <p style="flex: 1">Unit-Price</p>
+                    </div>
+                    <div style="display: flex; margin-left: 20px; margin-top: 20px">
+                        <p style="flex: 1">Americano</p>
+                        <p style="flex: 1">2</p>
+                        <p style="flex: 1">R</p>
+                        <p style="flex: 1">Food</p>
+                        <p style="flex: 1">3.5$</p>
+                    </div>
+                </div>
+                <p style="position: absolute; bottom: 20px; right: 20px; font-size: 22px; font-weight: bold;" id="total_p"><p>
+            </div>
+      </div>
   </main>
+  <script th:inline="javascript">
+
+    let right_side = document.getElementById('right-side')
+    right_side.style.display = "none"
+
+    let all_order_record = [[${orders}]]
+    let all_cashier = [[${cashiers}]]
+    let all_order_info = [[${order_info}]]
+    let all_drink = [[${drinks}]]
+
+    var order_info_array = []
+    
+    var name = ''
+    var item_name = ''
+    var quantity = ''
+    var category = ''
+    var size = ''
+    var unique_price = ''
+    var total_price = ''
+
+    function showMoreInfo(id){
+        right_side.style.display = "block"
+        all_order_record.forEach((data) => {
+            if (data.id === id){
+                total_price = data.total_price
+                all_cashier.forEach((data2) => {
+                    if(data2.id === data.cashier_id){
+                        name = data2.firstname + " " + data2.lastname
+                    }
+                })
+            }
+        })
+        all_order_info.forEach((data) => {
+            if (data.order_id === id){
+                order_info_array.push(data)
+            }
+        })
+        
+        let response_cashier = document.getElementById('response_cashier')
+        let order_listing = document.getElementById('order_listing')
+
+        let string_html = ''
+
+        string_html += 
+        `
+            <div style="display: flex; margin-left: 20px; margin-top: 20px">
+                <p style="flex: 1">Name</p>
+                <p style="flex: 1">Quantity</p>
+                <p style="flex: 1">Size</p>
+                <p style="flex: 1">Category</p>
+                <p style="flex: 1">Unit-Price</p>
+            </div>
+        `
+            
+        order_info_array.forEach( (data) => {
+            console.log(data.drink_id)
+            all_drink.forEach(data2 => {
+                if (data2.id === data.drink_id){
+                    string_html +=
+                    `
+                        <div style="display: flex; margin-left: 20px; margin-top: 20px">
+                            <p style="flex: 1">${data.name}</p>
+                            <p style="flex: 1">${data.quantity}</p>
+                            <p style="flex: 1">${data.size}</p>
+                            <p style="flex: 1">${data2.category}</p>
+                            <p style="flex: 1">${data.price} $</p>
+                        </div>
+                    `
+                }
+            })
+        })
+        let total_p = document.getElementById('total_p')
+        total_p.innerHTML = `Total price: ${total_price}` 
+
+        order_listing.innerHTML = string_html;
+        reponse_cashier.innerHTML = name
+        string_html = ""
+        order_info_array = []
+    
+        name = ''
+        item_name = ''
+        quantity = ''
+        category = ''
+        size = ''
+        unique_price = ''
+        total_price = ''
+
+    }  
+
+  </script>
+  <script src="../javascript/history.js"></script>
 </body>
 </html>

@@ -3,6 +3,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 
 import com.midterm.demo.repositories.DrinkRepository;
+import com.midterm.demo.service.CashierService;
 import com.midterm.demo.service.DrinkService;
 
 
@@ -23,6 +24,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.ui.Model;
@@ -33,6 +35,9 @@ public class DrinkControllers {
 
     @Autowired
     private DrinkService service;
+
+    @Autowired
+    private CashierService cashier_service;
 
     @Autowired
     private DrinkRepository repository;
@@ -131,12 +136,13 @@ public class DrinkControllers {
     }
 
     @GetMapping(path = "/giccafe/order")
-    public Object order(){
+    public Object order(Principal principal){
         ModelAndView modelAndView = new ModelAndView("Order");
         modelAndView.addObject("hotdrinks", service.getDrinkByCategory("hot"));
         modelAndView.addObject("cooldrinks", service.getDrinkByCategory("cool"));
         modelAndView.addObject("frappedrinks", service.getDrinkByCategory("frappe"));
         modelAndView.addObject("foods", service.getDrinkByCategory("food"));
+        modelAndView.addObject("user_id", cashier_service.getLoginUserId(principal.getName()));
         return modelAndView;
     }
 

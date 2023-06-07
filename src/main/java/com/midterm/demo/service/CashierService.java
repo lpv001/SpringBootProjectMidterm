@@ -46,6 +46,10 @@ public class CashierService {
         return "update successfully";
     }
 
+    public Integer getLoginUserId(String username){
+        return repository.getLoginUserId(username);
+    }
+
     // public Cashier getCashierByUsername(String username){
     //     return repository.findByUsername(username);
     // }

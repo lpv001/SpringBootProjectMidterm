@@ -18,4 +18,12 @@ public class OrderInfoService {
         return repository.save(order);
     }
 
+    public List<OrderInfo> getOrderInfos(){
+        return repository.findAll();
+    }
+
+    public List<OrderInfo> getOrderInfoByJoinTable(int order_id){
+        return repository.getOrderInfoByJoinTable(order_id);
+    }
+
 }

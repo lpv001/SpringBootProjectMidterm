@@ -1,6 +1,8 @@
 package com.midterm.demo.models;
 import java.util.Date;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import jakarta.persistence.*;
 import jakarta.persistence.Id;
 
@@ -32,20 +34,17 @@ public class Order{
         nullable = false
     )
     private String total_price;
-    @Column(
-        name="date",
-        columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
-        nullable = false
-    )
+
+    @CreationTimestamp
+    @Column(nullable = false, updatable = false, columnDefinition="TIMESTAMP default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP")
     private Date date;
 
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
+    @Column(
+        name = "cashier_id",
+        columnDefinition = "INTEGER",
+        nullable = false
+    )
+    private int cashier_id;
 
     public Integer getId() {
         return id;
@@ -61,6 +60,22 @@ public class Order{
 
     public void setTotal_price(String total_price) {
         this.total_price = total_price;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public int getCashier_id() {
+        return cashier_id;
+    }
+
+    public void setCashier_id(int cashier_id) {
+        this.cashier_id = cashier_id;
     }
 
     

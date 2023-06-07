@@ -152,7 +152,8 @@ let confirm_button = document.getElementById('confirm_button')
 var total_price = 0
 var order_arr = []
 var order_obj = {
-    total_price: ''
+    total_price: '',
+    cashier_id: 0
 }
 
 confirm_button.onclick = () => {
@@ -221,8 +222,9 @@ confirm_button.onclick = () => {
     un.innerHTML = str_un
     am.innerHTML = str_am
 
+    let cashier_id = document.getElementById('cashier_id').innerHTML
     order_obj.total_price = `${total_price}`
-
+    order_obj.cashier_id = parseInt(cashier_id)
     order_arr.push(order_obj)
 
 }
@@ -279,7 +281,7 @@ form.addEventListener('submit', (e) => {
             alert("error")
         }
     })
-
+    console.log(order_arr)
     $.ajax({
         url: "/giccafe/order_record",
         type: "POST",
