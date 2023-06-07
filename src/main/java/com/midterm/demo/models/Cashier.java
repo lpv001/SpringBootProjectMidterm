@@ -1,7 +1,12 @@
 package com.midterm.demo.models;
 
 
+import java.time.LocalDateTime;
 import java.util.Date;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -15,6 +20,7 @@ import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 
+
 @Entity(name = "Cashier")
 @Table(
     name = "cashier_table",
@@ -22,7 +28,7 @@ import jakarta.persistence.UniqueConstraint;
 )
 public class Cashier {
 
-    public Cashier(String firstname, String lastname, String type, String sex, Date dob, String username, String password, String image_path){
+    public Cashier(String firstname, String lastname, String type, String sex, String dob, String username, String password, String image_path){
         this.firstname = firstname;
         this.lastname = lastname;
         this.type = type;
@@ -87,8 +93,8 @@ public class Cashier {
         nullable = false,
         columnDefinition = "TEXT"
     )
-    @JsonFormat(pattern="yyyy-MM-dd")
-    private Date dob;
+    // @JsonFormat(pattern="yyyy-MM-dd")
+    private String dob;
 
     @Column(
         name = "username",
@@ -110,6 +116,10 @@ public class Cashier {
         columnDefinition = "TEXT"
     )
     private String image_path;
+
+    @CreationTimestamp
+    @Column(nullable = false, updatable = false, columnDefinition="TIMESTAMP default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP")
+    private Date createdDate;
 
     public Integer getId() {
         return id;
@@ -143,13 +153,7 @@ public class Cashier {
         this.sex = sex;
     }
 
-    public Date getDob() {
-        return dob;
-    }
 
-    public void setDob(Date dob) {
-        this.dob = dob;
-    }
 
     public String getUsername() {
         return username;
@@ -188,6 +192,22 @@ public class Cashier {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
 
     

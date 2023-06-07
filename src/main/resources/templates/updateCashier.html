@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+</head>
+<body>
+    <div class="container">
+
+        <h2>Update Cashier</h2>
+
+        <form action="/saveCashier" th:action="@{/saveCashier}" th:object="${cashier}" method="POST" enctype="multipart/form-data">
+            <input type="hidden" th:field="*{id}" />
+        
+            <input type="text" th:field="*{firstname}">
+        
+            <input type="text" th:field="*{lastname}">
+        
+            <input type="text" th:field="*{username}">
+        
+            <input type="text" th:field="*{sex}">
+        
+            <input type="text" th:field="*{password}">
+        
+            <input type="text" th:field="*{type}">
+        
+            <input type="date" th:field="*{dob}">
+        
+            <input type="file" name="image" accept="image/png, image/jpg">
+        
+            <button type="submit">Update</button>
+        </form>
+    
+        <a th:href="@{/gicadmin/view_cashier}"> Back to Cashier List</a>
+    </div>
+</body>
+</html>

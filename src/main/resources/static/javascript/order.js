@@ -103,8 +103,10 @@ function setDetail(type) {
     setquantity()
     setPrice()
     setName()
-    if (!order_obj.cream) setcream()
-    console.log(order_obj.cream)
+    if (!order_object.cream) setcream()
+    if (!order_object.quantity) order_object.quantity = '1'
+    if (!order_object.size) order_object.size = 'R'
+    console.log(order_object.quantity)
     order_array.push(order_object)
     order_object = {}
     ct.style.display = "none"

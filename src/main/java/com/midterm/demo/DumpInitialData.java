@@ -53,8 +53,8 @@ public class DumpInitialData implements CommandLineRunner{
         // TODO Auto-generated method stub
             
         if ( repository.findAll().isEmpty() ){
-            Cashier admin = new Cashier("Pink", "Panther", "ADMIN", "Male", new Date(2014, 02, 11), "pinkpanther", passwordEncoder.encode(("1234")), null);
-            Cashier cashier = new Cashier("Oggy", "Oggy", "CASHIER", "Male", new Date(2014, 02, 11), "oggy", passwordEncoder.encode(("1234")), null) ;
+            Cashier admin = new Cashier("Pink", "Panther", "ADMIN", "Male", "2001-12-24", "pinkpanther", passwordEncoder.encode(("1234")), null);
+            Cashier cashier = new Cashier("Oggy", "Oggy", "CASHIER", "Male", "2001-12-24", "oggy", passwordEncoder.encode(("1234")), null) ;
             repository.saveAll(List.of(admin,cashier));
             System.out.println("Database initialize succesfully! - User has been saved to database.");
         }else{
