@@ -30,6 +30,7 @@ public class OrderController {
         
         return "redirect:/giccafe/order";
     }
+    
     @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping(path = "/gicadmin/history")
     public String order(Model model){

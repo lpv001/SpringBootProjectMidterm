@@ -1,6 +1,4 @@
 package com.midterm.demo.models;
-import java.util.Date;
-
 import jakarta.persistence.*;
 import jakarta.persistence.Id;
 
@@ -32,20 +30,6 @@ public class Order{
         nullable = false
     )
     private String total_price;
-    @Column(
-        name="date",
-        columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
-        nullable = false
-    )
-    private Date date;
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
 
     public Integer getId() {
         return id;

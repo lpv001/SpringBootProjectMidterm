@@ -127,7 +127,7 @@ public class CashierController{
             }else{
                 service.setUpdateCashierById(form.getFirstname(), form.getLastname(), form.getUsername(), image.getOriginalFilename(), form.getSex(), form.getId(), form.getDob(), form.getPassword(), form.getType());
                 try {
-                    File saveFile = new ClassPathResource("static/drinkimage").getFile();
+                    File saveFile = new ClassPathResource("static/cashierimage").getFile();
                     Path path = Paths.get(saveFile.getAbsolutePath() + File.separator + image.getOriginalFilename());
                     Files.write(path, image.getBytes());
                 } catch (Exception e) {

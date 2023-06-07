@@ -292,6 +292,7 @@
             <header>Cashier</header>
             <form action="/saveCashier" th:action="@{/saveCashier}" th:object="${cashier}" method="post" enctype="multipart/form-data">
                 <div class="information">
+                    <input name="id" th:value="${cashier.id}" type="hidden" >
                     <div class="input-field">
                         <label for="firstname">First name:</label>
                         <input required name="firstname" type="text" placeholder="firstname" th:value="${cashier.firstname}">
