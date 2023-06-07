@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&family=Poor+Story&display=swap" rel="stylesheet">
+    <html xmlns="http://www.thymleaf.org"></html>
+    <style>
+        :root{
+    --font-header: 36px;
+    --font-regular: 16px;
+    --font-semi-regular: 20px;
+    --font-semi-header: 26px;
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Poor Story', cursive;
+}
+
+img{
+    width: 100%;
+    
+}
+
+header{
+    height: 80px;
+    width: 100%;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid silver;
+}
+
+header .header-arrange{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+header .header-arrange p{
+    color: #fff;
+    font-size: var(--font-header);
+}
+
+header .header-arrange ul{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #fff;
+    padding: 0 40px 0 0;
+}
+
+header .header-arrange ul li{
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .header-arrange i{
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    display: none;
+}
+
+@media (max-width: 840px){
+    header .header-arrange i{
+        display: block;
+    }
+    header .header-arrange ul{
+        position: absolute;
+        top: 80px;
+        flex-direction: column;
+        width: 100%;
+        background: #000;
+        left: 0;
+        padding: 40px 20px;
+    }
+    header .header-arrange ul li{
+        padding: 10px 0;
+        border-radius: 10px;
+    }
+    header .header-arrange ul li:hover{
+        background: rgb(255, 255, 255);
+        color: #000;
+    }
+}
+
+main{
+    width:100vw;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    margin-top: 50px;
+    min-height: 70vh;
+   
+}
+.history{
+    position: relative;
+    max-width: 700px;
+    width: 100%;
+    border-radius: 6px;
+    padding: 30px;
+    margin: 0 15px;
+    background-color: #fff;
+    border: 1px solid black;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    min-height: 40vh;
+   
+}
+.history form{
+    display: flex;
+    flex-direction:row;  
+    gap: 6%; 
+    padding: 10px;
+}
+.history form .idorder{
+    width: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+.history form .ordernumber{
+    
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* background-color: aqua; */
+    max-width: 18%;
+
+}
+.history form .table{
+    
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* background-color: rgb(21, 21, 21); */
+    max-width: 10%;
+    
+}
+.history form .price{
+    
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+    max-width: 10%;
+    
+}
+.history form .date{
+    
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+    width: 70%;
+    
+}
+.row{
+    padding: 10px;
+}
+input {
+    border: none;
+}
+
+
+
+</style>
+</head>
+<body>
+  <header>
+      <div class="header-arrange">
+          <p>GIC CAFE SHOP</p>
+          <ul>
+               <li><a href="/gicadmin/homepage" style="color: #fff;">HOME</a></li>
+                <li><a href="/gicadmin/view_cashier" style="color: #fff;">CASHIER</a></li>
+                <li><a href="/gicadmin/drink" style="color: #fff;">DRINK</a></li>
+                <li><a href="/gicadmin/history" style="color: #fff;">HISTORY</a></li>
+                <li><a href="/logout" style="color: #fff;">LOGOUT</a></li>
+          <i>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>                  
+          </i>
+      </div>
+  </header>
+  <main>
+      <div class="history" >
+        <div style="text-align: center;">
+            <h2 style="font-size: 40px;">History</h2>
+        </div>
+        
+          
+          
+          <table style="width:100%; padding:5px;">
+                <thead style="background-color: #d8c6c6;">
+                    <tr style="height:50px;font-size:25px;">
+                        <th style="width:33%;">order Number</th>
+                        <th>Price</th>
+                        <th>date</th>
+                        
+                        
+                    </tr>
+                </thead>
+                <tbody style="text-align:center;font-size:20px;">
+                    <tr th:each="order:${orders}" >
+                        
+                        <td th:text="${order.id}" style="height:50px;"></td>
+                        <td th:text="${order.total_price}"></td>
+                        <td th:text="${order.date}"></td>
+                    </tr>
+                </tbody>
+            </table>
+      </div>
+  </main>
+</body>
+</html>

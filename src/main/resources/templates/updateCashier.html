@@ -1,39 +1,372 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update</title>
+    <title>Detail</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&family=Poor+Story&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+
+        :root{
+            --font-header: 36px;
+            --font-regular: 16px;
+            --font-semi-regular: 20px;
+            --font-semi-header: 26px;
+        }
+        
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            text-decoration: none;
+            font-family: 'Nunito', sans-serif;
+            font-family: 'Poor Story', cursive;
+        }
+        
+        img{
+            width: 100%;
+            
+        }
+        
+        header{
+            height: 80px;
+            width: 100%;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid silver;
+        }
+        
+        header .header-arrange{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+        }
+        
+        header .header-arrange p{
+            color: #fff;
+            font-size: var(--font-header);
+        }
+        
+        header .header-arrange ul{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            color: #fff;
+            padding: 0 40px 0 0;
+        }
+        
+        header .header-arrange ul li{
+            cursor: pointer;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        header .header-arrange i{
+            color: #fff;
+            width: 20px;
+            height: 20px;
+            display: none;
+        }
+        
+        @media (max-width: 840px){
+            header .header-arrange i{
+                display: block;
+            }
+            header .header-arrange ul{
+                position: absolute;
+                top: 80px;
+                flex-direction: column;
+                width: 100%;
+                background: #000;
+                left: 0;
+                padding: 40px 20px;
+            }
+            header .header-arrange ul li{
+                padding: 10px 0;
+                border-radius: 10px;
+            }
+            header .header-arrange ul li:hover{
+                background: rgb(255, 255, 255);
+                color: #000;
+            }
+        }
+
+
+        main{
+            width:100%;
+            height:100%;
+            display:flex;
+            justify-content:center;
+            margin-top: 50px;
+            min-height: 70vh;
+           
+        }
+
+        .container {
+            position: relative;
+            max-width: 700px;
+            width: 100%;
+            border-radius: 6px;
+            padding: 30px;
+            margin: 0 15px;
+            background-color: #fff;
+            border:1px solid black ;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container header {
+            position: relative;
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .container form {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .container form .information {
+            width: 50%;
+            display: block;
+
+        }
+
+        .container form .photo {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+
+        }
+
+        .information .input-field {
+            display: grid;
+            margin-left: 10px;
+        }
+
+        .input-field label {
+            font-size: 12px;
+            font-weight: 500;
+            color: #2e2e2e;
+        }
+
+
+        .input-field input {
+            width: 90%;
+            outline: none;
+            font-size: 14px;
+            font-weight: 400;
+            color: #333;
+            border-radius: 5px;
+            border: 1px solid #aaa;
+            padding: 0 15px;
+            height: 42px;
+            margin: 8px 0;
+        }
+
+        .input-field select {
+            width: 90%;
+            outline: none;
+            font-size: 14px;
+            font-weight: 400;
+            color: #333;
+            border-radius: 5px;
+            border: 1px solid #aaa;
+            padding: 0 15px;
+            height: 42px;
+            margin: 8px 0;
+        }
+
+        .container form .btn {
+            width: 50%;
+        }
+
+        button {
+            height: 45px;
+            max-width: 150px;
+            width: 100%;
+            border: none;
+            outline: none;
+            color: #fff;
+            border-radius: 5px;
+            margin: 25px 0;
+            background-color: #000000;
+            transition: all 0.3s linear;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #6b6b6b;
+            color: #040404;
+        }
+        .upload-box{
+            width: 100%;
+            aspect-ratio: 4/5;
+        }
+        .photo .upload-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            /* width: 100%;
+            max-width: 90%; */
+            margin: 10%;
+            height: 80%;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .upload-box img{
+            border-radius: 5px;
+
+        }
+
+        .photo.active .upload-box {
+            border: none;
+        }
+
+        .photo.active .upload-box p {
+            display: none;
+        }
+
+        .photo.active .upload-box img {
+            width: 100%;
+            height: 80%;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .upload-box p {
+            font-size: 10px;
+            margin-top: 20PX;
+        }
+
+        @media (max-width: 700px) {
+            .container form {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .input-field {
+                display: flex;
+                flex-direction: column;
+            }
+
+        }
+    </style>
 </head>
+
 <body>
-    <div class="container">
-
-        <h2>Update Cashier</h2>
-
-        <form action="/saveCashier" th:action="@{/saveCashier}" th:object="${cashier}" method="POST" enctype="multipart/form-data">
-            <input type="hidden" th:field="*{id}" />
-        
-            <input type="text" th:field="*{firstname}">
-        
-            <input type="text" th:field="*{lastname}">
-        
-            <input type="text" th:field="*{username}">
-        
-            <input type="text" th:field="*{sex}">
-        
-            <input type="text" th:field="*{password}">
-        
-            <input type="text" th:field="*{type}">
-        
-            <input type="date" th:field="*{dob}">
-        
-            <input type="file" name="image" accept="image/png, image/jpg">
-        
-            <button type="submit">Update</button>
-        </form>
+    <header>
+        <div class="header-arrange">
+            <p>GIC CAFE SHOP</p>
+            <ul>
+                <li><a href="/gicadmin/homepage" style="color: #fff;">HOME</a></li>
+                <li><a href="/gicadmin/view_cashier" style="color: #fff;">CASHIER</a></li>
+                <li><a href="/gicadmin/drink" style="color: #fff;">DRINK</a></li>
+                <li><a href="/gicadmin/history" style="color: #fff;">HISTORY</a></li>
+                <li><a href="/logout" style="color: #fff;">LOGOUT</a></li>
+            </ul>
+            <i>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>                  
+            </i>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <header>Cashier</header>
+            <form action="/saveCashier" th:action="@{/saveCashier}" th:object="${cashier}" method="post" enctype="multipart/form-data">
+                <div class="information">
+                    <div class="input-field">
+                        <label for="firstname">First name:</label>
+                        <input required name="firstname" type="text" placeholder="firstname" th:value="${cashier.firstname}">
+                    </div>
+                    <div class="input-field">
+                        <label for="lastname">Last name:</label>
+                        <input required name="lastname" type="text" placeholder="last name" th:value="${cashier.lastname}">
+                    </div>
+                    <div class="input-field">
+                        <label for="firstname">Sex:</label>
+                        <select name="sex" id="" required th:value="${cashier.sex}">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <label>Date of Birth</label>
+                        <input name="dob" type="date" placeholder="Enter birth date" required th:value="${cashier.dob}">
+                    </div>
+                    <div class="input-field">
+                        <label for="type">type:</label>
+                        <input required name="type" type="text" placeholder="type" th:value="${cashier.type}">
+                    </div>
+                    <div class="input-field">
+                        <label for="username">Username:</label>
+                        <input required name="username" type="text" placeholder="username" th:value="${cashier.username}">
+                    </div>
+                    <div class="input-field">
+                        <label for="password">Password:</label>
+                        <input required name="password" type="text" placeholder="*******" th:value="${cashier.password}">
+                    </div>
+                    
+                </div>
+                <div class="photo">
+                    <div class="image"><img src="" alt=""></div>
+                    <div class="upload-box">
+                        <input name="image" type="file" th:value="${cashier.image_path}" hidden>
+                        <img th:src="@{'http://localhost:8080/cashierimage/' + ${cashier.image_path}}">
+                           
+                        <!-- <p>Browse File to Upload</p> -->
+                    </div>
+                </div>
+                <div class="btn">
+                    <a th:href="@{'/gicadmin/view_cashier'}"><button type="button">Cancel</button></a>
+                    <button type="submit">OK</button>
+                </div>
+                <input name="image_path" type="text" th:value="${cashier.image_path}" hidden>
+            </form>
+        </div>
+        <script>
+            const uploadBox = document.querySelector(".upload-box"),
+                previewImg = uploadBox.querySelector("img"),
+                fileInput = uploadBox.querySelector("input");
     
-        <a th:href="@{/gicadmin/view_cashier}"> Back to Cashier List</a>
-    </div>
+            const loadFile = (e) => {
+                const file = e.target.files[0]; // getting first user selected file
+                if (!file) return; // return if user hasn't selected any file
+                previewImg.src = URL.createObjectURL(file); // passing selected file url to preview img src
+                previewImg.addEventListener("load", () => { // once img loaded
+    
+                    document.querySelector(".photo").classList.add("active");
+                });
+            }
+    
+    
+            fileInput.addEventListener("change", loadFile);
+            uploadBox.addEventListener("click", () => fileInput.click());
+    
+        </script>
+        <th:block th:if="${errorMessage}">
+            <script>alert("Create new cashier failed!")</script>
+        </th:block>
+        <th:block th:if="${successMessage}">
+            <script>alert("Create new cashier successfully!")</script>
+        </th:block>
+    </main>
 </body>
 </html>

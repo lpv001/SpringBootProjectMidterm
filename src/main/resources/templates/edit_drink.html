@@ -230,8 +230,11 @@ button:hover {
     margin: 10%;
     height: 80%;
     cursor: pointer;
-    border: 2px dashed #000000;
     border-radius: 5px;
+}
+.upload-box img{
+    border-radius: 5px;
+
 }
 
 .photo.active .upload-box {
@@ -290,7 +293,7 @@ button:hover {
                 <li><a href="/gicadmin/homepage" style="color: #fff;">HOME</a></li>
                 <li><a href="/gicadmin/view_cashier" style="color: #fff;">CASHIER</a></li>
                 <li><a href="/gicadmin/drink" style="color: #fff;">DRINK</a></li>
-                <li><a href="/gicadmin/drink" style="color: #fff;">HISTORY</a></li>
+                <li><a href="/gicadmin/history" style="color: #fff;">HISTORY</a></li>
                 <li><a href="/logout" style="color: #fff;">LOGOUT</a></li>
             </ul>
             <i>
@@ -338,7 +341,7 @@ button:hover {
                     </div>
                 </div>
                 <div class="btn">
-                    <a th:href="@{'/gicadmin/drink'}"><button type="button">Cencel</button></a>
+                    <a th:href="@{'/gicadmin/drink'}"><button type="button">Cancel</button></a>
                     <button type="submit">OK</button>
                 </div>
                 <input name="image_path" type="text" th:value="${drink.image_path}" hidden>
